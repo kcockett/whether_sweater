@@ -39,9 +39,27 @@ RSpec.describe "Forecast API", type: :request do
 
         it "sunset, in a human-readable format such as “08:07 PM”"
 
-        
+        it "max_temp, floating point number indicating the maximum expected temperature in Fahrenheit"
+
+        it "min_temp, floating point number indicating the minimum expected temperature in Fahrenheit"
+
+        it "condition, the text description for the weather condition"
+
+        it "icon, png string for weather condition"
+
       end
 
+      scenario "the object holds 'hourly_weather' which is an array of all 24 hour’s hour data for the current day, including:" do
+
+        it "time, in a human-readable format such as “22:00”"
+
+        it "temperature, floating point number indicating the temperature in Fahrenheit for that hour"
+
+        it "conditions, the text description for the weather condition at that hour"
+
+        it "icon, string, png string for weather condition at that hour"
+
+      end
     end
   end
 end
