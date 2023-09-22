@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+* Outline the learning goals
+
 * Ruby version
 
 * System dependencies
@@ -21,4 +23,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* where they can get their own API keys
+
+* happy path endpoint use
