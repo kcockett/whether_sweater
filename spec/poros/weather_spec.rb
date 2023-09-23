@@ -158,26 +158,26 @@ RSpec.describe "Weather", :vcr, type: :poro do
 
       it "should filter out unnecessary forecast attributes" do
         expect(@object.forecast.first[:date_epoch]).to be nil
-        expect(@object.forecast.first[:day][:maxtemp_c]).to be nil
-        expect(@object.forecast.first[:day][:mintemp_c]).to be nil
-        expect(@object.forecast.first[:day][:avgtemp_c]).to be nil
-        expect(@object.forecast.first[:day][:maxwind_kph]).to be nil
-        expect(@object.forecast.first[:day][:totalprecip_mm]).to be nil
-        expect(@object.forecast.first[:day][:totalsnow_cm]).to be nil
-        expect(@object.forecast.first[:day][:avgvis_km]).to be nil
-        expect(@object.forecast.first[:day][:vis_km]).to be nil
-        expect(@object.forecast.first[:day][:daily_will_it_rain]).to be nil
-        expect(@object.forecast.first[:day][:daily_chance_of_rain]).to be nil
-        expect(@object.forecast.first[:day][:daily_will_it_snow]).to be nil
-        expect(@object.forecast.first[:day][:daily_chance_of_snow]).to be nil
-        expect(@object.forecast.first[:day][:condition][:code]).to be nil
-        expect(@object.forecast.first[:day][:uv]).to be nil
-        expect(@object.forecast.first[:astro][:moonrise]).to be nil
-        expect(@object.forecast.first[:astro][:moonset]).to be nil
-        expect(@object.forecast.first[:astro][:moon_phase]).to be nil
-        expect(@object.forecast.first[:astro][:moon_illumination]).to be nil
-        expect(@object.forecast.first[:astro][:is_moon_up]).to be nil
-        expect(@object.forecast.first[:astro][:is_sun_up]).to be nil
+        expect(@object.forecast.first[:maxtemp_c]).to be nil
+        expect(@object.forecast.first[:mintemp_c]).to be nil
+        expect(@object.forecast.first[:avgtemp_c]).to be nil
+        expect(@object.forecast.first[:maxwind_kph]).to be nil
+        expect(@object.forecast.first[:totalprecip_mm]).to be nil
+        expect(@object.forecast.first[:totalsnow_cm]).to be nil
+        expect(@object.forecast.first[:avgvis_km]).to be nil
+        expect(@object.forecast.first[:vis_km]).to be nil
+        expect(@object.forecast.first[:daily_will_it_rain]).to be nil
+        expect(@object.forecast.first[:daily_chance_of_rain]).to be nil
+        expect(@object.forecast.first[:daily_will_it_snow]).to be nil
+        expect(@object.forecast.first[:daily_chance_of_snow]).to be nil
+        expect(@object.forecast.first[:code]).to be nil
+        expect(@object.forecast.first[:uv]).to be nil
+        expect(@object.forecast.first[:moonrise]).to be nil
+        expect(@object.forecast.first[:moonset]).to be nil
+        expect(@object.forecast.first[:moon_phase]).to be nil
+        expect(@object.forecast.first[:moon_illumination]).to be nil
+        expect(@object.forecast.first[:is_moon_up]).to be nil
+        expect(@object.forecast.first[:is_sun_up]).to be nil
       end
     end
   end
