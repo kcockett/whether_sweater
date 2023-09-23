@@ -10,7 +10,16 @@ RSpec.describe "Mapquest Service", type: :service do
     end
 
     it "can return latitude and longitude for a given address" do
-      expect(@location).to eq("39.93481, -104.92211")
+      expect(@location).to be_a Hash
+      expect(@location[:info]).to be_a Hash
+      expect(@location[:options]).to be_a Hash
+      expect(@location[:results]).to be_a Array
+      expect(@location[:results].first).to be_a Hash
+      expect(@location[:results].first[:locations]).to be_a Array
+      expect(@location[:results].first[:locations].first).to be_a Hash
+      expect(@location[:results].first[:locations].first[:latLng]).to be_a Hash
+      expect(@location[:results].first[:locations].first[:latLng][:lat]).to be_a Float
+      expect(@location[:results].first[:locations].first[:latLng][:lng]).to be_a Float
     end
   end
 end
