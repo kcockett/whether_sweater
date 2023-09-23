@@ -18,7 +18,12 @@ class WeatherService
   def conn
     Faraday.new(
       url: "http://api.weatherapi.com/v1/",
-      params: { key: Rails.application.credentials[:weather_api_key] }
+      params: { key: Rails.application.credentials[:weather_api_key] },
+      headers: {
+        "Content-Type" => "application/json",
+        "Accept" => "application/json"
+      }
     )
   end
+  
 end

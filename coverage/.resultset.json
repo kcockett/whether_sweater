@@ -187,27 +187,32 @@
           null
         ]
       },
-      "/Users/kainacockett/Desktop/mod3/projects/whether_sweater/app/services/weather_service.rb": {
+      "/Users/kainacockett/Desktop/mod3/projects/whether_sweater/app/poros/weather.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          1,
+          2,
+          null,
+          2,
           null,
           null,
-          1,
-          1,
-          1,
           null,
           null,
-          1,
-          1,
-          1,
           null,
           null,
-          1,
-          1,
+          null,
+          null,
+          2,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -216,6 +221,6 @@
         ]
       }
     },
-    "timestamp": 1695434696
+    "timestamp": 1695486874
   }
 }

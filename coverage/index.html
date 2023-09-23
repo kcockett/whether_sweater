@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-09-22T20:04:56-06:00">2023-09-22T20:04:56-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-09-23T10:34:34-06:00">2023-09-23T10:34:34-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -29,8 +29,8 @@
      </span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="green">
+         1.08
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>53</b> relevant lines,
-    <span class="green"><b>53</b> lines covered</span> and
+    <b>48</b> relevant lines,
+    <span class="green"><b>48</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -71,13 +71,13 @@
       <tbody>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#15c0f0e3ae99a9f63f54ac66cffcc76d3663ea3a" class="src_link" title="app/services/weather_service.rb">app/services/weather_service.rb</a></td>
+            <td class="strong t-file__name"><a href="#6b5e359cc7b5cd0c9d47bb95203e79162e0cf6a6" class="src_link" title="app/poros/weather.rb">app/poros/weather.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">24</td>
-            <td class="cell--number">12</td>
-            <td class="cell--number">12</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">7</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">1.57</td>
             
           </tr>
         
@@ -186,9 +186,9 @@
 
       <div class="source_files">
       
-        <div class="source_table" id="15c0f0e3ae99a9f63f54ac66cffcc76d3663ea3a">
+        <div class="source_table" id="6b5e359cc7b5cd0c9d47bb95203e79162e0cf6a6">
   <div class="header">
-    <h3>app/services/weather_service.rb</h3>
+    <h3>app/poros/weather.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -200,8 +200,8 @@
     
 
     <div class="t-line-summary">
-      <b>12</b> relevant lines.
-      <span class="green"><b>12</b> lines covered</span> and
+      <b>7</b> relevant lines.
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -219,7 +219,7 @@
 
             
 
-            <code class="ruby">class WeatherService</code>
+            <code class="ruby">class Weather</code>
           </li>
         </div>
       
@@ -230,7 +230,7 @@
 
             
 
-            <code class="ruby">  attr_reader :location</code>
+            <code class="ruby">  attr_reader :location, :current</code>
           </li>
         </div>
       
@@ -252,18 +252,18 @@
 
             
 
-            <code class="ruby">  def initialize(location)</code>
+            <code class="ruby">  def initialize(params)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="5">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="5">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    @location = location</code>
+            <code class="ruby">    if params[:location]</code>
           </li>
         </div>
       
@@ -274,51 +274,51 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      @location = { </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="7">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="7">
+            <span class="hits">2</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        name: params[:location][:name],</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="8">
+            
             
 
             
 
-            <code class="ruby">  def get_current_weather</code>
+            <code class="ruby">        state: params[:location][:region],</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="9">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="9">
+            
             
 
             
 
-            <code class="ruby">    params = { q: @location }</code>
+            <code class="ruby">        country: params[:location][:country],</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="10">
+            
             
 
             
 
-            <code class="ruby">    get_url(&quot;current.json&quot;, params)</code>
+            <code class="ruby">        lat: params[:location][:lat],</code>
           </li>
         </div>
       
@@ -329,7 +329,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        lon: params[:location][:lon],</code>
           </li>
         </div>
       
@@ -340,51 +340,51 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        time_zone: params[:location][:tz_id],</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="13">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="13">
+            
             
 
             
 
-            <code class="ruby">  def get_url(url, params)</code>
+            <code class="ruby">        localtime: params[:location][:localtime]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="14">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="14">
+            
             
 
             
 
-            <code class="ruby">    response = conn.get(url, params)</code>
+            <code class="ruby">      }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="15">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="15">
+            
             
 
             
 
-            <code class="ruby">    JSON.parse(response.body, symbolize_names: true)</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    if params[:current]</code>
           </li>
         </div>
       
@@ -395,29 +395,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      @current = {</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="18">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  def conn</code>
+            <code class="ruby">        last_updated: params[:current][:last_updated],</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="19">
+            
             
 
             
 
-            <code class="ruby">    Faraday.new(</code>
+            <code class="ruby">        temp: params[:current][:temp_f],</code>
           </li>
         </div>
       
@@ -428,7 +428,7 @@
 
             
 
-            <code class="ruby">      url: &quot;http://api.weatherapi.com/v1/&quot;,</code>
+            <code class="ruby">        feels_like: params[:current][:feelslike_f],</code>
           </li>
         </div>
       
@@ -439,7 +439,7 @@
 
             
 
-            <code class="ruby">      params: { key: Rails.application.credentials[:weather_api_key] }</code>
+            <code class="ruby">        humidity: params[:current][:humidity],</code>
           </li>
         </div>
       
@@ -450,7 +450,7 @@
 
             
 
-            <code class="ruby">    )</code>
+            <code class="ruby">        uvi: params[:current][:uv],</code>
           </li>
         </div>
       
@@ -461,12 +461,67 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        visibility: params[:current][:vis_miles],</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">        condition: params[:current][:condition][:text],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">        icon: params[:current][:condition][:icon]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">      }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
