@@ -17,7 +17,7 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
       expect(weather_check.location[:country]).to eq("United States of America")
       expect(weather_check.location[:lat]).to eq(39.87)
       expect(weather_check.location[:lon]).to eq(-104.97)
-      expect(weather_check.location[:time_zone]).to eq("America/Denver")
+      expect(weather_check.location[:tz_id]).to eq("America/Denver")
       expect(weather_check.location[:localtime]).to be_a(String)
       
       expect(weather_check.current[:last_updated]).to be_a(String)
