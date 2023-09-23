@@ -87,7 +87,48 @@ RSpec.describe "Weather", :vcr, type: :poro do
                 "moon_illumination": "52",
                 "is_moon_up": 1,
                 "is_sun_up": 1
-              }
+              },
+              "hour": [
+                {
+                  "time_epoch": 1695448800,
+                  "time": "2023-09-23 00:00",
+                  "temp_c": 15.8,
+                  "temp_f": 60.4,
+                  "is_day": 0,
+                  "condition": {
+                    "text": "Clear",
+                    "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+                    "code": 1000
+                  },
+                  "wind_mph": 2.0,
+                  "wind_kph": 3.2,
+                  "wind_degree": 291,
+                  "wind_dir": "WNW",
+                  "pressure_mb": 1010.0,
+                  "pressure_in": 29.82,
+                  "precip_mm": 0.0,
+                  "precip_in": 0.0,
+                  "humidity": 38,
+                  "cloud": 0,
+                  "feelslike_c": 15.8,
+                  "feelslike_f": 60.4,
+                  "windchill_c": 15.8,
+                  "windchill_f": 60.4,
+                  "heatindex_c": 15.8,
+                  "heatindex_f": 60.4,
+                  "dewpoint_c": 1.6,
+                  "dewpoint_f": 34.8,
+                  "will_it_rain": 0,
+                  "chance_of_rain": 0,
+                  "will_it_snow": 0,
+                  "chance_of_snow": 0,
+                  "vis_km": 10.0,
+                  "vis_miles": 6.0,
+                  "gust_mph": 3.8,
+                  "gust_kph": 6.1,
+                  "uv": 1.0
+                }
+              ]
             }
           ]
         }
@@ -136,6 +177,10 @@ RSpec.describe "Weather", :vcr, type: :poro do
         expect(info[:min_temp]).to eq(48.2)
         expect(info[:condition]).to eq("Overcast")
         expect(info[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/122.png")
+      end
+
+      it "should initialize with hourly forecast information" do
+
       end
 
       it "should filter out unnecessary location attributes" do
