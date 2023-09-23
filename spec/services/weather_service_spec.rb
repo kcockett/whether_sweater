@@ -9,8 +9,6 @@ RSpec.describe "Weather Service", type: :service do
       service = WeatherService.new(location)
       current_weather = service.get_current_weather
 
-      require 'pry'; binding.pry
-
       expect(current_weather[:location][:name]).to be_a(String)
       expect(current_weather[:location][:name]).to eq("Thornton")
       
@@ -52,7 +50,7 @@ RSpec.describe "Weather Service", type: :service do
       expect(current_weather[:current][:feelslike_c]).to be_a(Float)
       expect(current_weather[:current][:feelslike_f]).to be_a(Float)
       expect(current_weather[:current][:vis_km]).to be_a(Float)
-      expect(current_weather[:current][:vis_mi]).to be_a(Float)
+      expect(current_weather[:current][:vis_miles]).to be_a(Float)
       expect(current_weather[:current][:uv]).to be_a(Float)
       expect(current_weather[:current][:gust_mph]).to be_a(Float)
       expect(current_weather[:current][:gust_kph]).to be_a(Float)

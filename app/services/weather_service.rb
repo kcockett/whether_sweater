@@ -12,7 +12,7 @@ class WeatherService
 
   def get_url(url, params)
     response = conn.get(url, params)
-    JSON.parse(response.body, symbolize_keys: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn

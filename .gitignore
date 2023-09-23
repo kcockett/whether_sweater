@@ -28,3 +28,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/weather_api.yml
+
+/coverage
+/spec/fixtures/vcr_cassettes
