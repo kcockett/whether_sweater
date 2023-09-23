@@ -3,34 +3,45 @@ require "rails_helper"
 RSpec.describe "Forecast API", type: :request do
   describe "GET /api/v0/forecast", :vcr do
     
-    # scenario "when making a valid request (GET /api/v0/forecast?location=cincinatti,oh), the response should return a specific set of data in JSON format" do
+    describe "when making a valid request (GET /api/v0/forecast?location=cincinatti,oh), the response should return a specific set of data in JSON format" do
       
-    #   it "the ID is always set to null" 
+      before do
+        @location = "cincinatti,oh"
+        @response = get "/api/v0/forecast?location=#{@location}"
+      end
+      
+      it "the ID is always set to null" do
+        expect(@response[:id]).to eq("null")
+      end
 
-    #   it "type is always set to 'forecast'"
+      it "type is always set to 'forecast'" do
+        expect(@response[:type]).to eq("forecast")
+      end
 
-    #   it "attributes is an object holding weather data" 
+      it "attributes is an object holding weather data" do
+        expect(@response[:attributes]).to be_a Weather
+      end
 
-    #   scenario "the object holds 'current_weather' with current weather data" do
+      # scenario "the object holds 'current_weather' with current weather data" do
 
-    #     it "last_updated, in a human-readable format such as '2023-04-07 16:30'"
+      #   it "last_updated, in a human-readable format such as '2023-04-07 16:30'"
 
-    #     it "temperature, floating point number indicating the current temperature in Fahrenheit"
+      #   it "temperature, floating point number indicating the current temperature in Fahrenheit"
 
-    #     it "feels_like, floating point number indicating a temperature in Fahrenheit"
+      #   it "feels_like, floating point number indicating a temperature in Fahrenheit"
 
-    #     it "humidity, numeric (int or float)"
+      #   it "humidity, numeric (int or float)"
 
-    #     it "uvi, numeric (int or float)"
+      #   it "uvi, numeric (int or float)"
 
-    #     it "visibility, numeric (int or float)"
+      #   it "visibility, numeric (int or float)"
 
-    #     it "condition, the text description for the current weather condition"
+      #   it "condition, the text description for the current weather condition"
 
-    #     it "icon, png string for current weather condition"
+      #   it "icon, png string for current weather condition"
 
-    #   end
-
+      # end
+    end
     #   scenario "the object holds 'daily_weather' with weather data for the next 5 days with the following: " do
 
     #     it "date, in a human-readable format such as '2023-04-07'"
