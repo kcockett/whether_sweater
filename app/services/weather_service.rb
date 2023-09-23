@@ -5,9 +5,9 @@ class WeatherService
     @location = location
   end
 
-  def get_current_weather
-    params = { q: @location }
-    get_url("current.json", params)
+  def get_weather
+    params = { q: @location, days: 5 }
+    get_url("forecast.json", params)
   end
 
   def get_url(url, params)
