@@ -47,28 +47,31 @@ RSpec.describe "Weather", :vcr, type: :poro do
       end
 
       it "should initialze with current weather information" do
+        expect(@object).to be_a Weather
+        expect(@object.location).to be_a Hash
+        expect(@object.current).to be_a Hash
+
         expect(@object.location[:name]).to eq("Thornton")
-        expect(@object.location[:region]).to eq("Colorado")
+        expect(@object.location[:state]).to eq("Colorado")
         expect(@object.location[:country]).to eq("United States of America")
         expect(@object.location[:lat]).to eq(39.87)
         expect(@object.location[:lon]).to eq(-104.97)
-        expect(@object.location[:tz_id]).to eq("America/Denver")
+        expect(@object.location[:time_zone]).to eq("America/Denver")
         expect(@object.location[:localtime]).to eq("2023-09-23 9:36")
 
         expect(@object.current[:last_updated]).to eq("2023-09-23 09:30")
-        expect(@object.current[:temp_f]).to eq(62.6)
-        expect(@object.current[:feelslike_f]).to eq(62.6)
+        expect(@object.current[:temp]).to eq(62.6)
+        expect(@object.current[:feels_like]).to eq(62.6)
         expect(@object.current[:humidity]).to eq(17)
-        expect(@object.current[:uv]).to eq(3.0)
-        expect(@object.current[:vis_miles]).to eq(9.0)
-        expect(@object.current[:condition][:text]).to eq("Partly cloudy")
-        expect(@object.current[:condition][:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/116.png")
+        expect(@object.current[:uvi]).to eq(3.0)
+        expect(@object.current[:visibility]).to eq(9.0)
+        expect(@object.current[:condition]).to eq("Partly cloudy")
+        expect(@object.current[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/116.png")
       end
 
       it "should filter out unneeded attributes" do
         expect(@object.current[:last_updated_epoch]).to be nil
         expect(@object.current[:temp_c]).to be nil
-        expect(@object.current[:condition][:code]).to be nil
         expect(@object.current[:wind_kph]).to be nil
         expect(@object.current[:pressure_mb]).to be nil
         expect(@object.current[:precip_mm]).to be nil
