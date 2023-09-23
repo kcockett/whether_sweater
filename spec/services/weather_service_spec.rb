@@ -99,5 +99,41 @@ RSpec.describe "Weather Service", type: :service do
       expect(forecast[:astro][:is_moon_up]).to be_a(Integer)
       expect(forecast[:astro][:is_sun_up]).to be_a(Integer)
     end
+    
+    it "can retrieve hourly weather information" do
+      hourly = @weather[:forecast][:forecastday].first[:hour].first
+      
+      expect(hourly[:time_epoch]).to be_a(Integer)
+      expect(hourly[:time]).to be_a(String)
+      expect(hourly[:temp_c]).to be_a(Float)
+      expect(hourly[:temp_f]).to be_a(Float)
+      expect(hourly[:is_day]).to be_a(Integer)
+      expect(hourly[:condition][:text]).to be_a(String)
+      expect(hourly[:condition][:icon]).to be_a(String)
+      expect(hourly[:condition][:code]).to be_a(Integer)
+      expect(hourly[:wind_mph]).to be_a(Float)
+      expect(hourly[:wind_kph]).to be_a(Float)
+      expect(hourly[:wind_degree]).to be_a(Integer)
+      expect(hourly[:wind_dir]).to be_a(String)
+      expect(hourly[:pressure_mb]).to be_a(Float)
+      expect(hourly[:pressure_in]).to be_a(Float)
+      expect(hourly[:precip_mm]).to be_a(Float)
+      expect(hourly[:precip_in]).to be_a(Float)
+      expect(hourly[:humidity]).to be_a(Integer)
+      expect(hourly[:cloud]).to be_a(Integer)
+      expect(hourly[:feelslike_c]).to be_a(Float)
+      expect(hourly[:feelslike_f]).to be_a(Float)
+      expect(hourly[:dewpoint_c]).to be_a(Float)
+      expect(hourly[:dewpoint_f]).to be_a(Float)
+      expect(hourly[:will_it_rain]).to be_a(Integer)
+      expect(hourly[:chance_of_rain]).to be_a(Integer)
+      expect(hourly[:will_it_snow]).to be_a(Integer)
+      expect(hourly[:chance_of_snow]).to be_a(Integer)
+      expect(hourly[:vis_km]).to be_a(Float)
+      expect(hourly[:vis_miles]).to be_a(Float)
+      expect(hourly[:gust_mph]).to be_a(Float)
+      expect(hourly[:gust_kph]).to be_a(Float)
+      expect(hourly[:uv]).to be_a(Float)
+    end
   end
 end
