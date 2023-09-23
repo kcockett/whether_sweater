@@ -8,7 +8,7 @@ RSpec.describe "Weather", :vcr, type: :poro do
         
         current_weather = {last_updated: "2023-09-22 18:00", temp: 71.6, feels_like: 73.0, humidity: 20, uv: 1.0, vis_miles: 9.0, condition: {text: "Partly cloudy", icon: "//cdn.weatherapi.com/weather/64x64/night/116.png"}}
 
-        params = {location: location, current_weather: current_weather}
+        params = {location: location, current: current_weather}
 
         object = Weather.new(params)
 
