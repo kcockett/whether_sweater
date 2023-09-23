@@ -180,7 +180,13 @@ RSpec.describe "Weather", :vcr, type: :poro do
       end
 
       it "should initialize with hourly forecast information" do
-        expect(@object.forecast.first).to be_a Hash
+        expect(@object.forecast.first[:hourly]).to be_a Array
+        hour = @object.forecast.first[:hourly].first
+
+        expect(hour[:time]).to eq("2023-09-23 00:00")
+        expect(hour[:temp]).to eq(60.4)
+        expect(hour[:condition]).to eq("Clear")
+        expect(hour[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/night/113.png")
       end
 
       it "should filter out unnecessary location attributes" do

@@ -37,23 +37,24 @@ class Weather
         max_temp: day[:day][:maxtemp_f],
         min_temp: day[:day][:mintemp_f],
         condition: day[:day][:condition][:text],
-        icon: day[:day][:condition][:icon]
-        hourly_info = get_hourly_data(day[:hour])
-        hourly: hourly_info
+        icon: day[:day][:condition][:icon],
+        hourly: get_hourly_data(day[:hour])
         }
         @forecast << info
       end
     end
   end
 
-  private
-
   def get_hourly_data(hours)
+    data = []
     hours.map do |hour|
-      time: hour[:time], 
-      temp: hour[:temp_f],
-      condition: hour[:condition][:text],
-      icon: hour[:condition][:icon]
+      info = {
+        time: hour[:time], 
+        temp: hour[:temp_f],
+        condition: hour[:condition][:text],
+        icon: hour[:condition][:icon]
+      }
+      data << info
     end
   end
 end
