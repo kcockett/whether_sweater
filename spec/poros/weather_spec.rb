@@ -138,7 +138,11 @@ RSpec.describe "Weather", :vcr, type: :poro do
         expect(info[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/122.png")
       end
 
-      it "should filter out unneeded attributes" do
+      it "should filter out unnecessary location attributes" do
+        expect(@object.location[:localtime_epoch]).to be nil
+      end
+
+      it "should filter out unnecessary current weather attributes" do
         expect(@object.current[:last_updated_epoch]).to be nil
         expect(@object.current[:temp_c]).to be nil
         expect(@object.current[:wind_kph]).to be nil
@@ -150,7 +154,30 @@ RSpec.describe "Weather", :vcr, type: :poro do
         expect(@object.current[:vis_km]).to be nil
         expect(@object.current[:gust_mph]).to be nil
         expect(@object.current[:gust_kph]).to be nil
-        expect(@object.location[:localtime_epoch]).to be nil
+      end
+
+      it "should filter out unnecessary forecast attributes" do
+        expect(@object.forecast.first[:date_epoch]).to be nil
+        expect(@object.forecast.first[:day][:maxtemp_c]).to be nil
+        expect(@object.forecast.first[:day][:mintemp_c]).to be nil
+        expect(@object.forecast.first[:day][:avgtemp_c]).to be nil
+        expect(@object.forecast.first[:day][:maxwind_kph]).to be nil
+        expect(@object.forecast.first[:day][:totalprecip_mm]).to be nil
+        expect(@object.forecast.first[:day][:totalsnow_cm]).to be nil
+        expect(@object.forecast.first[:day][:avgvis_km]).to be nil
+        expect(@object.forecast.first[:day][:vis_km]).to be nil
+        expect(@object.forecast.first[:day][:daily_will_it_rain]).to be nil
+        expect(@object.forecast.first[:day][:daily_chance_of_rain]).to be nil
+        expect(@object.forecast.first[:day][:daily_will_it_snow]).to be nil
+        expect(@object.forecast.first[:day][:daily_chance_of_snow]).to be nil
+        expect(@object.forecast.first[:day][:condition][:code]).to be nil
+        expect(@object.forecast.first[:day][:uv]).to be nil
+        expect(@object.forecast.first[:astro][:moonrise]).to be nil
+        expect(@object.forecast.first[:astro][:moonset]).to be nil
+        expect(@object.forecast.first[:astro][:moon_phase]).to be nil
+        expect(@object.forecast.first[:astro][:moon_illumination]).to be nil
+        expect(@object.forecast.first[:astro][:is_moon_up]).to be nil
+        expect(@object.forecast.first[:astro][:is_sun_up]).to be nil
       end
     end
   end
