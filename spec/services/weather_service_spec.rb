@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Weather Service", type: :service do
-  describe "Retrieves weather information from http://api.weatherapi.com/v1/", :vcr do
+  describe "Retrieves weather information from http://api.weatherapi.com/v1/forecast.json", :vcr do
 
     before do
       location = "39.87,-104.97"
