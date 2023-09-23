@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "WeatherFacade", type: :facade do
+RSpec.describe "WeatherFacade", :vcr, type: :facade do
   describe "#current_weather" do
 
     before do
