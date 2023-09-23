@@ -47,14 +47,15 @@ class Weather
 
   def get_hourly_data(hours)
     data = []
-    hours.map do |hour|
+    hours.each do |hour|
       info = {
-        time: hour[:time], 
+        time: hour[:time][-5..-1], 
         temp: hour[:temp_f],
         condition: hour[:condition][:text],
         icon: hour[:condition][:icon]
       }
       data << info
     end
+    data
   end
 end

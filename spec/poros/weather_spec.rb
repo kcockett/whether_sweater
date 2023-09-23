@@ -183,7 +183,7 @@ RSpec.describe "Weather", :vcr, type: :poro do
         expect(@object.forecast.first[:hourly]).to be_a Array
         hour = @object.forecast.first[:hourly].first
 
-        expect(hour[:time]).to eq("2023-09-23 00:00")
+        expect(hour[:time]).to eq("00:00")
         expect(hour[:temp]).to eq(60.4)
         expect(hour[:condition]).to eq("Clear")
         expect(hour[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/night/113.png")
@@ -229,6 +229,41 @@ RSpec.describe "Weather", :vcr, type: :poro do
         expect(@object.forecast.first[:moon_illumination]).to be nil
         expect(@object.forecast.first[:is_moon_up]).to be nil
         expect(@object.forecast.first[:is_sun_up]).to be nil
+      end
+
+      it "should filter out unnecessary hourly forecast attributes" do
+        hour = @object.forecast.first[:hourly].first
+        expect(hour[:tim_epoch]).to be nil
+        expect(hour[:temp_c]).to be nil
+        expect(hour[:is_day]).to be nil
+        expect(hour[:text]).to be nil
+        expect(hour[:wind_mph]).to be nil
+        expect(hour[:wind_kph]).to be nil
+        expect(hour[:wind_degree]).to be nil
+        expect(hour[:wind_dir]).to be nil
+        expect(hour[:pressure_mb]).to be nil
+        expect(hour[:pressure_in]).to be nil
+        expect(hour[:precip_mm]).to be nil
+        expect(hour[:precip_in]).to be nil
+        expect(hour[:humidity]).to be nil
+        expect(hour[:cloud]).to be nil
+        expect(hour[:feelslike_c]).to be nil
+        expect(hour[:feelslike_f]).to be nil
+        expect(hour[:windchill_c]).to be nil
+        expect(hour[:windchill_f]).to be nil
+        expect(hour[:heatindex_c]).to be nil
+        expect(hour[:heatindex_f]).to be nil
+        expect(hour[:dewpoint_c]).to be nil
+        expect(hour[:dewpoint_f]).to be nil
+        expect(hour[:will_it_rain]).to be nil
+        expect(hour[:chance_of_rain]).to be nil
+        expect(hour[:will_it_snow]).to be nil
+        expect(hour[:chance_of_snow]).to be nil
+        expect(hour[:vis_km]).to be nil
+        expect(hour[:vis_miles]).to be nil
+        expect(hour[:gust_kph]).to be nil
+        expect(hour[:gust_mph]).to be nil
+        expect(hour[:uv]).to be nil
       end
     end
   end
