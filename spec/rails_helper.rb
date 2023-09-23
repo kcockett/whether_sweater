@@ -75,9 +75,9 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  # config.filter_sensitive_data('MY_SECRET_TOKEN') do
-  #   Rails.application.credentials.my_api_key[:primary_key]
-  # end
+  config.filter_sensitive_data('MY_SECRET_TOKEN') do
+    Rails.application.credentials.[:WEATHER-API-KEY]
+  end
   config.configure_rspec_metadata!
   config.default_cassette_options = { serialize_with: :json, record: :new_episodes }
 end
