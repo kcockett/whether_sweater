@@ -180,7 +180,7 @@ RSpec.describe "Weather", :vcr, type: :poro do
       end
 
       it "should initialize with hourly forecast information" do
-
+        expect(@object.forecast.first).to be_a Hash
       end
 
       it "should filter out unnecessary location attributes" do

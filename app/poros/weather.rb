@@ -38,9 +38,22 @@ class Weather
         min_temp: day[:day][:mintemp_f],
         condition: day[:day][:condition][:text],
         icon: day[:day][:condition][:icon]
+        hourly_info = get_hourly_data(day[:hour])
+        hourly: hourly_info
         }
         @forecast << info
       end
+    end
+  end
+
+  private
+
+  def get_hourly_data(hours)
+    hours.map do |hour|
+      time: hour[:time], 
+      temp: hour[:temp_f],
+      condition: hour[:condition][:text],
+      icon: hour[:condition][:icon]
     end
   end
 end
