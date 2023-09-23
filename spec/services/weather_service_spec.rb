@@ -7,7 +7,7 @@ RSpec.describe "Weather Service", type: :service do
       
       location = "thornton,co"
       service = WeatherService.new(location)
-      current_weather = service.get_current_weather
+      current_weather = service.get_weather
 
       expect(current_weather[:location][:name]).to be_a(String)
       expect(current_weather[:location][:name]).to eq("Thornton")

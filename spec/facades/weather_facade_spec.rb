@@ -6,7 +6,7 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
     before do
       location = "thornton,co"
       facade = WeatherFacade.new(location)
-      @weather_check = facade.current_weather
+      @weather_check = facade.get_weather
     end
 
     it "returns a Weather object with location information" do

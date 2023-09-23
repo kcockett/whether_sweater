@@ -5,9 +5,9 @@ class WeatherFacade
     @location = location
   end
 
-  def current_weather
+  def get_weather
     service = WeatherService.new(@location)
-    weather_info = service.get_current_weather
+    weather_info = service.get_weather
     Weather.new(weather_info)
   end
 end

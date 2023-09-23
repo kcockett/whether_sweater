@@ -5,7 +5,7 @@ class WeatherService
     @location = location
   end
 
-  def get_current_weather
+  def get_weather
     params = { q: @location }
     get_url("current.json", params)
   end
