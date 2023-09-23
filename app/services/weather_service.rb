@@ -1,12 +1,24 @@
 class WeatherService
+  attr_reader :location
 
-  def get_current_weather(location, air_quality_index? = true)
-    get_url("current.json")
+  def initialize(location)
+    @location = location
+  end
+
+  def get_current_weather
+    params = { q: @location }
+    get_url("current.json", params)
+  end
+
+  def get_url(url, params)
+    response = conn.get(url, params)
+    JSON.parse(response.body, symbolize_keys: true)
   end
 
   def conn
-    Faraday.new(url: "http://api.weatherapi.com/v1/") do |faraday|
-      faraday.params(key: Rails.application.credentials[WEATHER-API-KEY])
-    end
+    Faraday.new(
+      url: "http://api.weatherapi.com/v1/",
+      params: { key: Rails.application.credentials[:weather_api_key] }
+    )
   end
 end

@@ -1,13 +1,15 @@
-requires "rails_helper"
+require "rails_helper"
 
 RSpec.describe "Weather Service", type: :service do
-  describe "Retrieves weather information from http://api.weatherapi.com/v1/" do
+  describe "Retrieves weather information from http://api.weatherapi.com/v1/", :vcr do
     
     it "can retrieve current weather information" do
       
       location = "thornton,co"
       service = WeatherService.new(location)
       current_weather = service.get_current_weather
+
+      require 'pry'; binding.pry
 
       expect(current_weather[:location][:name]).to be_a(String)
       expect(current_weather[:location][:name]).to eq("Thornton")
