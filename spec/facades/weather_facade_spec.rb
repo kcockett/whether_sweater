@@ -4,7 +4,7 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
   describe "#current_weather" do
 
     before do
-      location = "thornton,co"
+      location = "39.87,-104.97"
       facade = WeatherFacade.new(location)
       @weather_check = facade.get_weather
     end

@@ -4,7 +4,7 @@ RSpec.describe "Weather Service", type: :service do
   describe "Retrieves weather information from http://api.weatherapi.com/v1/", :vcr do
 
     before do
-      location = "thornton,co"
+      location = "39.87,-104.97"
       service = WeatherService.new(location)
       @weather = service.get_weather
     end
