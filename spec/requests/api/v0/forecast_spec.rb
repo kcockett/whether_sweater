@@ -125,7 +125,11 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:daily_weather].first[:max_temp]).to be_a Float
         end
         
-        # it "min_temp, floating point number indicating the minimum expected temperature in Fahrenheit"
+        it "min_temp, floating point number indicating the minimum expected temperature in Fahrenheit" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:min_temp)
+          expect(@response[:data][:attributes][:daily_weather].first[:min_temp]).to be_a Float
+        end
         
         # it "condition, the text description for the weather condition"
         
