@@ -37,5 +37,118 @@ RSpec.describe "Users API", type: :request do
         expect(reply[:data][:attributes][:api_key]).to be_a String
       end
     end
+
+    describe "SAD PATHS: Invalid information returns errors" do
+
+      it "should return a 422 error if no information is passed" do
+        json_payload = {
+          # email: "my_email@example.com",
+          # password: "password",
+          # password_confirmation: "password"
+        }.to_json
+
+        post '/api/v0/users',
+          params: json_payload,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(422)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to have_key(:details)
+        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+      end
+
+      it "should return a 422 error if email is missing" do
+        json_payload = {
+          # email: "my_email@example.com",
+          password: "password",
+          password_confirmation: "password"
+        }.to_json
+
+        post '/api/v0/users',
+          params: json_payload,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(422)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to have_key(:details)
+        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+      end
+
+      it "should return a 422 error if password is missing" do
+        json_payload = {
+          email: "my_email@example.com",
+          # password: "password",
+          password_confirmation: "password"
+        }.to_json
+
+        post '/api/v0/users',
+          params: json_payload,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(422)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to have_key(:details)
+        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+      end
+
+      it "should return a 422 error if password_confirmation is missing" do
+        json_payload = {
+          email: "my_email@example.com",
+          password: "password",
+          # password_confirmation: "password"
+        }.to_json
+
+        post '/api/v0/users',
+          params: json_payload,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(422)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to have_key(:details)
+        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+      end
+
+      it "should return a 422 error if passwords do not match" do
+        json_payload = {
+          email: "my_email@example.com",
+          password: "password",
+          password_confirmation: "wrong_password"
+        }.to_json
+
+        post '/api/v0/users',
+          params: json_payload,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(422)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to have_key(:details)
+        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+      end
+    end
   end
 end
