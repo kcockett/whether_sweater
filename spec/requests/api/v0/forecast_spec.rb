@@ -186,11 +186,14 @@ RSpec.describe "Forecast API", type: :request do
         get "/api/v0/forecast"
         reply = JSON.parse(response.body, symbolize_names: true)
 
+        expect(response.status).to eq(400)
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_an Array
         expect(reply[:errors].first).to have_key(:detail)
         expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
+
+      
     end
   end
 end
