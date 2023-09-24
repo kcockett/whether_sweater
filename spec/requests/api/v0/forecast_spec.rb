@@ -16,7 +16,7 @@ RSpec.describe "Forecast API", type: :request do
       end
 
       it "the ID is always set to null" do
-        expect(@response[:id]).to eq("null")
+        expect(@response[:data][:id]).to eq("null")
       end
 
       # it "type is always set to 'forecast'" do
