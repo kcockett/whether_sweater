@@ -171,10 +171,13 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first).to have_key(:conditions)
           expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first[:conditions]).to be_a String
         end
-      
-      #     it "icon, string, png string for weather condition at that hour"
-      
-      #   end
+        
+        it "icon, string, png string for weather condition at that hour" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first).to have_key(:icon)
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first[:icon]).to be_a String
+        end
+
       end
     end
   end
