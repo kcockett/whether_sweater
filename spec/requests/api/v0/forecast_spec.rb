@@ -180,5 +180,28 @@ RSpec.describe "Forecast API", type: :request do
 
       end
     end
+
+    describe "SAD PATH: returns an error when invalid information is provided" do
+      it "returns an error if the location is missing" do
+        get "/api/v0/forecast"
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(400)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_an Array
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
+      end
+
+      it "SAD PATH: returns results for Washington DC if the location is invalid" do
+        location = "invalid location"
+        get "/api/v0/forecast?location=#{location}"
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq(200)
+        expect(reply[:data][:attributes][:location][:lat]).to eq(38.89037)
+        expect(reply[:data][:attributes][:location][:lon]).to eq(-77.03196)
+      end
+    end
   end
 end
