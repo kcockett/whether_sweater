@@ -19,9 +19,9 @@ RSpec.describe "Forecast API", type: :request do
         expect(@response[:data][:id]).to be_nil
       end
 
-      # it "type is always set to 'forecast'" do
-      #   expect(@response[:type]).to eq("forecast")
-      # end
+      it "type is always set to 'forecast'" do
+        expect(@response[:data][:type]).to eq("forecast")
+      end
 
       # it "attributes is an object holding weather data" do
       #   expect(@response[:attributes]).to be_a Weather
