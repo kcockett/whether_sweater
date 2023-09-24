@@ -4,5 +4,5 @@ class WeatherSerializer
     nil
   end
   set_type "forecast"
-  attributes :location, :current_weather, :forecast
+  attributes :location, :current_weather, :daily_weather
 end
