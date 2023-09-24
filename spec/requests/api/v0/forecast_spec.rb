@@ -122,7 +122,7 @@ RSpec.describe "Forecast API", type: :request do
         it "max_temp, floating point number indicating the maximum expected temperature in Fahrenheit" do
 
           expect(@response[:data][:attributes][:daily_weather].first).to have_key(:max_temp)
-          expect(@response[:data][:attributes][:daily_weather].first[:temperature]).to be_a Float
+          expect(@response[:data][:attributes][:daily_weather].first[:max_temp]).to be_a Float
         end
         
         # it "min_temp, floating point number indicating the minimum expected temperature in Fahrenheit"
