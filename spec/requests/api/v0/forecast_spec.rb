@@ -131,7 +131,11 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:daily_weather].first[:min_temp]).to be_a Float
         end
         
-        # it "condition, the text description for the weather condition"
+        it "condition, the text description for the weather condition" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:condition)
+          expect(@response[:data][:attributes][:daily_weather].first[:condition]).to be_a String
+        end
         
         # it "icon, png string for weather condition"
         
