@@ -7,10 +7,10 @@ class WeatherFacade
     @location = "#{latitude},#{longitude}"
     @weather = get_weather
   end
-
+  
   def get_weather
     service = WeatherService.new(@location)
     weather_info = service.get_weather
-    Weather.new(weather_info)
+    Weather.new(weather_info, @location)
   end
 end

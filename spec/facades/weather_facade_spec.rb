@@ -12,9 +12,8 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
     it "returns a location information as a hash of 'latitude, longitude' and no other info" do
       info = @weather_check.location
       expect(info).to be_a(Hash)
-      expect(info[:lat]).to eq(39.11)
-      expect(info[:lon]).to eq(-84.5)
-      require 'pry'; binding.pry
+      expect(info[:lat]).to eq(39.10713)
+      expect(info[:lon]).to eq(-84.50413)
     end
     
     it "the Weather object includes current weather information" do
