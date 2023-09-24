@@ -111,9 +111,19 @@ RSpec.describe "Forecast API", type: :request do
           expect(value).to match(expected_format)
         end
         
-        # it "sunset, in a human-readable format such as “08:07 PM”"
+        it "sunset, in a human-readable format such as “08:07 PM”" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:sunset)
+          value = @response[:data][:attributes][:daily_weather].first[:sunset]
+          expected_format = /\d{2}:\d{2} [APap][Mm]/
+          expect(value).to match(expected_format)
+        end
         
-        # it "max_temp, floating point number indicating the maximum expected temperature in Fahrenheit"
+        it "max_temp, floating point number indicating the maximum expected temperature in Fahrenheit" do
+
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:max_temp)
+          expect(@response[:data][:attributes][:daily_weather].first[:temperature]).to be_a Float
+        end
         
         # it "min_temp, floating point number indicating the minimum expected temperature in Fahrenheit"
         
