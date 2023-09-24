@@ -49,7 +49,7 @@ class Weather
       info = {
         time: hour[:time][-5..-1], 
         temperature: hour[:temp_f],
-        condition: hour[:condition][:text],
+        conditions: hour[:condition][:text],
         icon: hour[:condition][:icon]
       }
       data << info
