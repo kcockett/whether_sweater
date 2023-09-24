@@ -104,9 +104,12 @@ RSpec.describe "Forecast API", type: :request do
           expect(value).to match(expected_format)
         end
         
-        # end
-        
-        # it "sunrise, in a human-readable format such as '07:13 AM'"
+        it "sunrise, in a human-readable format such as '07:13 AM'" do
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:sunrise)
+          value = @response[:data][:attributes][:daily_weather].first[:sunrise]
+          expected_format = /\d{2}:\d{2} [APap][Mm]/
+          expect(value).to match(expected_format)
+        end
         
         # it "sunset, in a human-readable format such as “08:07 PM”"
         
