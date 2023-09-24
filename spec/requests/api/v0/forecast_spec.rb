@@ -159,8 +159,12 @@ RSpec.describe "Forecast API", type: :request do
           expected_format = /\d{2}:\d{2}/
           expect(value).to match(expected_format)
         end
-      
-      #     it "temperature, floating point number indicating the temperature in Fahrenheit for that hour"
+        
+        it "temperature, floating point number indicating the temperature in Fahrenheit for that hour" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first).to have_key(:temperature)
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first[:temperature]).to be_a Float
+        end
       
       #     it "conditions, the text description for the weather condition at that hour"
       
