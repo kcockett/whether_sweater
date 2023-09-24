@@ -1,5 +1,5 @@
 class Weather
-  attr_reader :location, :current, :forecast
+  attr_reader :location, :current_weather, :forecast
 
   def initialize(params, coordinates)
     if coordinates
@@ -13,7 +13,7 @@ class Weather
     end
 
     if params[:current]
-      @current = {
+      @current_weather = {
         last_updated: params[:current][:last_updated],
         temp: params[:current][:temp_f],
         feels_like: params[:current][:feelslike_f],

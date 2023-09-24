@@ -27,7 +27,7 @@ RSpec.describe "Forecast API", type: :request do
         expect(@response[:data]).to have_key(:attributes)
       end
 
-      scenario "the object holds 'current_weather' with current weather data" do
+      describe "the object holds 'current_weather' with current weather data" do
 
         it "has a key called 'current_weather" do
           expect(@response[:data][:attributes]).to have_key(:current_weather)
@@ -35,19 +35,19 @@ RSpec.describe "Forecast API", type: :request do
 
         # it "last_updated, in a human-readable format such as '2023-04-07 16:30'"
 
-      #   it "temperature, floating point number indicating the current temperature in Fahrenheit"
+        #   it "temperature, floating point number indicating the current temperature in Fahrenheit"
 
-      #   it "feels_like, floating point number indicating a temperature in Fahrenheit"
+        #   it "feels_like, floating point number indicating a temperature in Fahrenheit"
 
-      #   it "humidity, numeric (int or float)"
+        #   it "humidity, numeric (int or float)"
 
-      #   it "uvi, numeric (int or float)"
+        #   it "uvi, numeric (int or float)"
 
-      #   it "visibility, numeric (int or float)"
+        #   it "visibility, numeric (int or float)"
 
-      #   it "condition, the text description for the current weather condition"
+        #   it "condition, the text description for the current weather condition"
 
-      #   it "icon, png string for current weather condition"
+        #   it "icon, png string for current weather condition"
 
       end
     end
