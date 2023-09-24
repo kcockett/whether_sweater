@@ -151,8 +151,14 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather]).to be_a(Array)
           expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].count).to eq(24)
         end
-      
-      #     it "time, in a human-readable format such as “22:00”"
+        
+        it "time, in a human-readable format such as “22:00”" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first).to have_key(:time)
+          value = @response[:data][:attributes][:daily_weather].first[:hourly_weather].first[:time]
+          expected_format = /\d{2}:\d{2}/
+          expect(value).to match(expected_format)
+        end
       
       #     it "temperature, floating point number indicating the temperature in Fahrenheit for that hour"
       
