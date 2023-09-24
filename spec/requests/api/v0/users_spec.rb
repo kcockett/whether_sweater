@@ -21,3 +21,5 @@ RSpec.describe "Users API", type: :request do
         expect(response.status).to eq(201)
       end
     end
+  end
+end
