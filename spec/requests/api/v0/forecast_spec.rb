@@ -142,10 +142,15 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:daily_weather].first).to have_key(:icon)
           expect(@response[:data][:attributes][:daily_weather].first[:icon]).to be_a String
         end
-        
       end
       
-      #   scenario "the object holds 'hourly_weather' which is an array of all 24 hour’s hour data for the current day, including:" do
+      describe "the object holds 'hourly_weather' which is an array of all 24 hour’s hour data for the current day, including:" do
+
+        it "has key 'hourly_weather' which is an array of 24 items" do
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:hourly_weather)
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather]).to be_a(Array)
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].count).to eq(24)
+        end
       
       #     it "time, in a human-readable format such as “22:00”"
       
@@ -156,7 +161,7 @@ RSpec.describe "Forecast API", type: :request do
       #     it "icon, string, png string for weather condition at that hour"
       
       #   end
-      # end
+      end
     end
   end
 end
