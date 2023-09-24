@@ -56,8 +56,12 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:current_weather]).to have_key(:feels_like)
           expect(@response[:data][:attributes][:current_weather][:feels_like]).to be_a Float
         end
-
-        #   it "humidity, numeric (int or float)"
+        
+        it "humidity, numeric (int or float)" do
+          
+          expect(@response[:data][:attributes][:current_weather]).to have_key(:humidity)
+          expect(@response[:data][:attributes][:current_weather][:humidity]).to be_a(Float).or be_a(Integer)
+        end
 
         #   it "uvi, numeric (int or float)"
 
