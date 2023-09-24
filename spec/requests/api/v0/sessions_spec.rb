@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Sessions request" do
   describe "POST /api/v0/sessions" do
-    describe "Logging in with valid credentials renders a json response with user id, email, and api key" do
+    it "Logging in with valid credentials renders a json response with user id, email, and api key" do
       user = User.create!(email: "user@example.com", password: "password")
       
       json_payload = {
