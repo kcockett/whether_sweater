@@ -58,8 +58,8 @@ RSpec.describe "Users API", type: :request do
         expect(response.status).to eq(422)
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
-        expect(reply[:errors].first).to have_key(:details)
-        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
 
       it "should return a 422 error if email is missing" do
@@ -80,8 +80,8 @@ RSpec.describe "Users API", type: :request do
         expect(response.status).to eq(422)
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
-        expect(reply[:errors].first).to have_key(:details)
-        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
 
       it "should return a 422 error if password is missing" do
@@ -102,8 +102,8 @@ RSpec.describe "Users API", type: :request do
         expect(response.status).to eq(422)
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
-        expect(reply[:errors].first).to have_key(:details)
-        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
 
       it "should return a 422 error if password_confirmation is missing" do
@@ -124,8 +124,8 @@ RSpec.describe "Users API", type: :request do
         expect(response.status).to eq(422)
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
-        expect(reply[:errors].first).to have_key(:details)
-        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
 
       it "should return a 422 error if passwords do not match" do
@@ -146,8 +146,8 @@ RSpec.describe "Users API", type: :request do
         expect(response.status).to eq(422)
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
-        expect(reply[:errors].first).to have_key(:details)
-        expect(reply[:errors].first[:details]).to eq("Invalid parameters")
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
     end
   end
