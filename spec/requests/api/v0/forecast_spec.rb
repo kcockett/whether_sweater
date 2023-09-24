@@ -165,8 +165,12 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first).to have_key(:temperature)
           expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first[:temperature]).to be_a Float
         end
-      
-      #     it "conditions, the text description for the weather condition at that hour"
+        
+        it "conditions, the text description for the weather condition at that hour" do
+          
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first).to have_key(:conditions)
+          expect(@response[:data][:attributes][:daily_weather].first[:hourly_weather].first[:conditions]).to be_a String
+        end
       
       #     it "icon, string, png string for weather condition at that hour"
       
