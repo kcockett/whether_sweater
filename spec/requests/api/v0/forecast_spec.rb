@@ -8,15 +8,15 @@ RSpec.describe "Forecast API", type: :request do
       before do
         location = "cincinatti,oh"
         get "/api/v0/forecast?location=#{location}"
-        @response = JSON.parse(response.body)
+        @response = JSON.parse(response.body, symbolize_names: true)
       end
       
       it "response includes a data attribute, under which all other attributes are present" do
-        expect(@response).to have_key("data")
+        expect(@response).to have_key(:data)
       end
 
       it "the ID is always set to null" do
-        expect(@response[:data][:id]).to eq("null")
+        expect(@response[:data][:id]).to be_nil
       end
 
       # it "type is always set to 'forecast'" do
