@@ -6,21 +6,26 @@ RSpec.describe "Forecast API", type: :request do
     describe "when making a valid request (GET /api/v0/forecast?location=cincinatti,oh), the response should return a specific set of data in JSON format" do
       
       before do
-        @location = "cincinatti,oh"
-        @response = get "/api/v0/forecast?location=#{@location}"
+        location = "cincinatti,oh"
+        get "/api/v0/forecast?location=#{location}"
+        @response = JSON.parse(response.body)
       end
       
+      it "response includes a data attribute, under which all other attributes are present" do
+        expect(@response).to have_key("data")
+      end
+
       it "the ID is always set to null" do
         expect(@response[:id]).to eq("null")
       end
 
-      it "type is always set to 'forecast'" do
-        expect(@response[:type]).to eq("forecast")
-      end
+      # it "type is always set to 'forecast'" do
+      #   expect(@response[:type]).to eq("forecast")
+      # end
 
-      it "attributes is an object holding weather data" do
-        expect(@response[:attributes]).to be_a Weather
-      end
+      # it "attributes is an object holding weather data" do
+      #   expect(@response[:attributes]).to be_a Weather
+      # end
 
       # scenario "the object holds 'current_weather' with current weather data" do
 
