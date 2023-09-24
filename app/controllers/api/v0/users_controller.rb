@@ -1,14 +1,14 @@
 class Api::V0::UsersController < ApplicationController
   def create
-    if user_params[:email] && user_params[:password] == user_params[:password_confirmation]
-      user = User.new(email: user_params[:email], password: user_params[:password])
-      if user.save
-        render json: UserSerializer.serialize(user)
-      end
+    user = User.new(user_params)
+  
+    if user.save
+      render json: UserSerializer.new(user), status: :created
     else
-      render json: ErrorSerializer.serialize("Invalid parameters"), status: 400
+      render json: ErrorSerializer.format_errors("Invalid parameters"), status: :unprocessable_entity
     end
   end
+  
 
   private
 
