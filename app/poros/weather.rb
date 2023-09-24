@@ -15,7 +15,7 @@ class Weather
     if params[:current]
       @current_weather = {
         last_updated: params[:current][:last_updated],
-        temp: params[:current][:temp_f],
+        temperature: params[:current][:temp_f],
         feels_like: params[:current][:feelslike_f],
         humidity: params[:current][:humidity],
         uvi: params[:current][:uv],
