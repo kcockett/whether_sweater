@@ -34,7 +34,7 @@ RSpec.describe "Users API", type: :request do
         expect(reply[:data][:attributes][:email]).to eq("my_email@example.com")
         
         expect(reply[:data][:attributes]).to have_key(:api_key)
-        expect(reply[:data][:attributes][:api-key]).to be_a String
+        expect(reply[:data][:attributes][:api_key]).to be_a String
       end
     end
   end
