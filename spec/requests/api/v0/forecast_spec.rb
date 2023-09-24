@@ -23,9 +23,9 @@ RSpec.describe "Forecast API", type: :request do
         expect(@response[:data][:type]).to eq("forecast")
       end
 
-      # it "attributes is an object holding weather data" do
-      #   expect(@response[:attributes]).to be_a Weather
-      # end
+      it "attributes is an object holding weather data" do
+        expect(@response[:data]).to have_key(:attributes)
+      end
 
       # scenario "the object holds 'current_weather' with current weather data" do
 
