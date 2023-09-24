@@ -39,14 +39,17 @@ RSpec.describe "Forecast API", type: :request do
         end
 
         it "has key 'last_updated' with a value in a human-readable format such as '2023-04-07 16:30'" do
-
-          expect(@response[:data).to have_key(:last_updated)
-          value = @response[:data][:last_updated]
+          expect(@response[:data][:attributes][:current_weather]).to have_key(:last_updated)
+          value = @response[:data][:attributes][:current_weather][:last_updated]
           expected_format = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}/
           expect(value).to match(expected_format)
         end
 
-        #   it "temperature, floating point number indicating the current temperature in Fahrenheit"
+        it "temperature, floating point number indicating the current temperature in Fahrenheit" do
+
+          expect(@response[:data][:attributes][:current_weather]).to have_key(:temperature)
+          expect(@response[:data][:attributes][:current_weather][:temperature]).to be_a Float
+        end
 
         #   it "feels_like, floating point number indicating a temperature in Fahrenheit"
 
