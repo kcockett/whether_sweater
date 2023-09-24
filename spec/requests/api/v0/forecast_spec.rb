@@ -44,9 +44,9 @@ RSpec.describe "Forecast API", type: :request do
           expected_format = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}/
           expect(value).to match(expected_format)
         end
-
+        
         it "temperature, floating point number indicating the current temperature in Fahrenheit" do
-
+          
           expect(@response[:data][:attributes][:current_weather]).to have_key(:temperature)
           expect(@response[:data][:attributes][:current_weather][:temperature]).to be_a Float
         end
@@ -89,15 +89,21 @@ RSpec.describe "Forecast API", type: :request do
       end
       
       describe "the object holds 'daily_weather' with weather data for the next 5 days with the following: " do
-
+        
         it "should have key 'daily_weather' that is an array with 5 days of weather data" do
           expect(@response[:data][:attributes]).to have_key(:daily_weather)
           expect(@response[:data][:attributes][:daily_weather]).to be_a(Array)
           expect(@response[:data][:attributes][:daily_weather].count).to eq(5)
         end
         
-        # it "date, in a human-readable format such as '2023-04-07'" do
+        it "date, in a human-readable format such as '2023-04-07'" do
           
+          expect(@response[:data][:attributes][:daily_weather].first).to have_key(:date)
+          value = @response[:data][:attributes][:daily_weather].first[:date]
+          expected_format = /\d{4}-\d{2}-\d{2}/
+          expect(value).to match(expected_format)
+        end
+        
         # end
         
         # it "sunrise, in a human-readable format such as '07:13 AM'"
