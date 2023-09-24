@@ -90,9 +90,10 @@ RSpec.describe "Forecast API", type: :request do
       
       describe "the object holds 'daily_weather' with weather data for the next 5 days with the following: " do
 
-        it "should have key 'daily_weather' that is an array" do
+        it "should have key 'daily_weather' that is an array with 5 days of weather data" do
           expect(@response[:data][:attributes]).to have_key(:daily_weather)
           expect(@response[:data][:attributes][:daily_weather]).to be_a(Array)
+          expect(@response[:data][:attributes][:daily_weather].count).to eq(5)
         end
         
         # it "date, in a human-readable format such as '2023-04-07'" do
