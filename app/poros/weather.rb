@@ -1,5 +1,5 @@
 class Weather
-  attr_reader :location, :current, :forecast
+  attr_reader :location, :current_weather, :daily_weather
 
   def initialize(params, coordinates)
     if coordinates
@@ -13,9 +13,9 @@ class Weather
     end
 
     if params[:current]
-      @current = {
+      @current_weather = {
         last_updated: params[:current][:last_updated],
-        temp: params[:current][:temp_f],
+        temperature: params[:current][:temp_f],
         feels_like: params[:current][:feelslike_f],
         humidity: params[:current][:humidity],
         uvi: params[:current][:uv],
@@ -26,7 +26,7 @@ class Weather
     end
 
     if params[:forecast]
-      @forecast = []
+      @daily_weather = []
       params[:forecast][:forecastday].each do |day|
         info = {
         date: day[:date],
@@ -36,9 +36,9 @@ class Weather
         min_temp: day[:day][:mintemp_f],
         condition: day[:day][:condition][:text],
         icon: day[:day][:condition][:icon],
-        hourly: get_hourly_data(day[:hour])
+        hourly_weather: get_hourly_data(day[:hour])
         }
-        @forecast << info
+        @daily_weather << info
       end
     end
   end
@@ -48,8 +48,8 @@ class Weather
     hours.each do |hour|
       info = {
         time: hour[:time][-5..-1], 
-        temp: hour[:temp_f],
-        condition: hour[:condition][:text],
+        temperature: hour[:temp_f],
+        conditions: hour[:condition][:text],
         icon: hour[:condition][:icon]
       }
       data << info

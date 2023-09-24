@@ -17,9 +17,9 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
     end
     
     it "the Weather object includes current weather information" do
-      info = @weather_check.current
+      info = @weather_check.current_weather
       expect(info[:last_updated]).to be_a(String)
-      expect(info[:temp]).to be_a(Float)
+      expect(info[:temperature]).to be_a(Float)
       expect(info[:feels_like]).to be_a(Float)
       expect(info[:humidity]).to be_a(Integer)
       expect(info[:uvi]).to be_a(Float)
@@ -29,7 +29,7 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
     end
     
     it "the Weather object includes a 5-day weather forecast" do
-      forecast_day = @weather_check.forecast.first
+      forecast_day = @weather_check.daily_weather.first
       expect(forecast_day[:date]).to be_a(String)
       expect(forecast_day[:sunrise]).to be_a(String)
       expect(forecast_day[:sunset]).to be_a(String)
