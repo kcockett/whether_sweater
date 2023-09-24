@@ -48,7 +48,7 @@ class Weather
     hours.each do |hour|
       info = {
         time: hour[:time][-5..-1], 
-        temp: hour[:temp_f],
+        temperature: hour[:temp_f],
         condition: hour[:condition][:text],
         icon: hour[:condition][:icon]
       }
