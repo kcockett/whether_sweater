@@ -74,10 +74,18 @@ RSpec.describe "Forecast API", type: :request do
           expect(@response[:data][:attributes][:current_weather]).to have_key(:visibility)
           expect(@response[:data][:attributes][:current_weather][:visibility]).to be_a(Float).or be_a(Integer)
         end
-
-        #   it "condition, the text description for the current weather condition"
-
-        #   it "icon, png string for current weather condition"
+        
+        it "condition, the text description for the current weather condition" do
+          
+          expect(@response[:data][:attributes][:current_weather]).to have_key(:condition)
+          expect(@response[:data][:attributes][:current_weather][:condition]).to be_a(String)
+        end
+        
+        it "icon, png string for current weather condition" do
+          
+          expect(@response[:data][:attributes][:current_weather]).to have_key(:icon)
+          expect(@response[:data][:attributes][:current_weather][:icon]).to be_a(String)
+        end
 
       end
     end
