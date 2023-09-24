@@ -12,28 +12,39 @@ RSpec.describe "Forecast API", type: :request do
       end
       
       it "response includes a data attribute, under which all other attributes are present" do
+
         expect(@response).to have_key(:data)
       end
 
       it "the ID is always set to null" do
+
         expect(@response[:data][:id]).to be_nil
       end
 
       it "type is always set to 'forecast'" do
+
         expect(@response[:data][:type]).to eq("forecast")
       end
 
       it "attributes is an object holding weather data" do
+
         expect(@response[:data]).to have_key(:attributes)
       end
 
       describe "the object holds 'current_weather' with current weather data" do
 
         it "has a key called 'current_weather" do
+
           expect(@response[:data][:attributes]).to have_key(:current_weather)
         end
 
-        # it "last_updated, in a human-readable format such as '2023-04-07 16:30'"
+        it "has key 'last_updated' with a value in a human-readable format such as '2023-04-07 16:30'" do
+
+          expect(@response[:data).to have_key(:last_updated)
+          value = @response[:data][:last_updated]
+          expected_format = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}/
+          expect(value).to match(expected_format)
+        end
 
         #   it "temperature, floating point number indicating the current temperature in Fahrenheit"
 
