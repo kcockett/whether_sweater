@@ -36,7 +36,7 @@ class Weather
         min_temp: day[:day][:mintemp_f],
         condition: day[:day][:condition][:text],
         icon: day[:day][:condition][:icon],
-        hourly: get_hourly_data(day[:hour])
+        hourly_weather: get_hourly_data(day[:hour])
         }
         @daily_weather << info
       end
