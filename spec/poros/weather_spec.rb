@@ -6,16 +6,7 @@ RSpec.describe "Weather", :vcr, type: :poro do
 
       before do
 
-        location = {
-          :name=>"Thornton",
-          :region=>"Colorado",
-          :country=>"United States of America",
-          :lat=>39.87,
-          :lon=>-104.97,
-          :tz_id=>"America/Denver",
-          :localtime_epoch=>1695483377,
-          :localtime=>"2023-09-23 9:36"
-        }
+        location = "39.93481,-104.92193"
         
         current_weather = {
           :last_updated_epoch=>1695483000,
@@ -132,22 +123,17 @@ RSpec.describe "Weather", :vcr, type: :poro do
             }
           ]
         }
-        params = {location: location, current: current_weather, forecast: day}
+        params = {current: current_weather, forecast: day}
 
-        @object = Weather.new(params)
+        @object = Weather.new(params, location)
       end
 
       it "should initialze with location information" do
         expect(@object).to be_a Weather
         expect(@object.location).to be_a Hash
 
-        expect(@object.location[:name]).to eq("Thornton")
-        expect(@object.location[:state]).to eq("Colorado")
-        expect(@object.location[:country]).to eq("United States of America")
-        expect(@object.location[:lat]).to eq(39.87)
-        expect(@object.location[:lon]).to eq(-104.97)
-        expect(@object.location[:time_zone]).to eq("America/Denver")
-        expect(@object.location[:localtime]).to eq("2023-09-23 9:36")
+        expect(@object.location[:lat]).to eq(39.93481)
+        expect(@object.location[:lon]).to eq(-104.92193)
       end
 
       it "should initialze with current weather information" do
