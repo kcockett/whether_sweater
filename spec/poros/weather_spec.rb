@@ -138,23 +138,23 @@ RSpec.describe "Weather", :vcr, type: :poro do
 
       it "should initialze with current weather information" do
         expect(@object).to be_a Weather
-        expect(@object.current).to be_a Hash
+        expect(@object.current_weather).to be_a Hash
 
-        expect(@object.current[:last_updated]).to eq("2023-09-23 09:30")
-        expect(@object.current[:temp]).to eq(62.6)
-        expect(@object.current[:feels_like]).to eq(62.6)
-        expect(@object.current[:humidity]).to eq(17)
-        expect(@object.current[:uvi]).to eq(3.0)
-        expect(@object.current[:visibility]).to eq(9.0)
-        expect(@object.current[:condition]).to eq("Partly cloudy")
-        expect(@object.current[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/116.png")
+        expect(@object.current_weather[:last_updated]).to eq("2023-09-23 09:30")
+        expect(@object.current_weather[:temperature]).to eq(62.6)
+        expect(@object.current_weather[:feels_like]).to eq(62.6)
+        expect(@object.current_weather[:humidity]).to eq(17)
+        expect(@object.current_weather[:uvi]).to eq(3.0)
+        expect(@object.current_weather[:visibility]).to eq(9.0)
+        expect(@object.current_weather[:condition]).to eq("Partly cloudy")
+        expect(@object.current_weather[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/day/116.png")
       end
       
       it "should initialize with weather forecast information" do
-        expect(@object.forecast).to be_a Array
-        expect(@object.forecast.first).to be_a Hash
+        expect(@object.daily_weather).to be_a Array
+        expect(@object.daily_weather.first).to be_a Hash
 
-        info = @object.forecast.first
+        info = @object.daily_weather.first
   
         expect(info[:date]).to eq("2023-09-23")
         expect(info[:sunrise]).to eq("06:48 AM")
@@ -166,12 +166,12 @@ RSpec.describe "Weather", :vcr, type: :poro do
       end
 
       it "should initialize with hourly forecast information" do
-        expect(@object.forecast.first[:hourly]).to be_a Array
-        hour = @object.forecast.first[:hourly].first
+        expect(@object.daily_weather.first[:hourly_weather]).to be_a Array
+        hour = @object.daily_weather.first[:hourly_weather].first
 
         expect(hour[:time]).to eq("00:00")
-        expect(hour[:temp]).to eq(60.4)
-        expect(hour[:condition]).to eq("Clear")
+        expect(hour[:temperature]).to eq(60.4)
+        expect(hour[:conditions]).to eq("Clear")
         expect(hour[:icon]).to eq("//cdn.weatherapi.com/weather/64x64/night/113.png")
       end
 
@@ -180,45 +180,45 @@ RSpec.describe "Weather", :vcr, type: :poro do
       end
 
       it "should filter out unnecessary current weather attributes" do
-        expect(@object.current[:last_updated_epoch]).to be nil
-        expect(@object.current[:temp_c]).to be nil
-        expect(@object.current[:wind_kph]).to be nil
-        expect(@object.current[:pressure_mb]).to be nil
-        expect(@object.current[:precip_mm]).to be nil
-        expect(@object.current[:precip_in]).to be nil
-        expect(@object.current[:cloud]).to be nil
-        expect(@object.current[:feelslike_c]).to be nil
-        expect(@object.current[:vis_km]).to be nil
-        expect(@object.current[:gust_mph]).to be nil
-        expect(@object.current[:gust_kph]).to be nil
+        expect(@object.current_weather[:last_updated_epoch]).to be nil
+        expect(@object.current_weather[:temp_c]).to be nil
+        expect(@object.current_weather[:wind_kph]).to be nil
+        expect(@object.current_weather[:pressure_mb]).to be nil
+        expect(@object.current_weather[:precip_mm]).to be nil
+        expect(@object.current_weather[:precip_in]).to be nil
+        expect(@object.current_weather[:cloud]).to be nil
+        expect(@object.current_weather[:feelslike_c]).to be nil
+        expect(@object.current_weather[:vis_km]).to be nil
+        expect(@object.current_weather[:gust_mph]).to be nil
+        expect(@object.current_weather[:gust_kph]).to be nil
       end
 
       it "should filter out unnecessary forecast attributes" do
-        expect(@object.forecast.first[:date_epoch]).to be nil
-        expect(@object.forecast.first[:maxtemp_c]).to be nil
-        expect(@object.forecast.first[:mintemp_c]).to be nil
-        expect(@object.forecast.first[:avgtemp_c]).to be nil
-        expect(@object.forecast.first[:maxwind_kph]).to be nil
-        expect(@object.forecast.first[:totalprecip_mm]).to be nil
-        expect(@object.forecast.first[:totalsnow_cm]).to be nil
-        expect(@object.forecast.first[:avgvis_km]).to be nil
-        expect(@object.forecast.first[:vis_km]).to be nil
-        expect(@object.forecast.first[:daily_will_it_rain]).to be nil
-        expect(@object.forecast.first[:daily_chance_of_rain]).to be nil
-        expect(@object.forecast.first[:daily_will_it_snow]).to be nil
-        expect(@object.forecast.first[:daily_chance_of_snow]).to be nil
-        expect(@object.forecast.first[:code]).to be nil
-        expect(@object.forecast.first[:uv]).to be nil
-        expect(@object.forecast.first[:moonrise]).to be nil
-        expect(@object.forecast.first[:moonset]).to be nil
-        expect(@object.forecast.first[:moon_phase]).to be nil
-        expect(@object.forecast.first[:moon_illumination]).to be nil
-        expect(@object.forecast.first[:is_moon_up]).to be nil
-        expect(@object.forecast.first[:is_sun_up]).to be nil
+        expect(@object.daily_weather.first[:date_epoch]).to be nil
+        expect(@object.daily_weather.first[:maxtemp_c]).to be nil
+        expect(@object.daily_weather.first[:mintemp_c]).to be nil
+        expect(@object.daily_weather.first[:avgtemp_c]).to be nil
+        expect(@object.daily_weather.first[:maxwind_kph]).to be nil
+        expect(@object.daily_weather.first[:totalprecip_mm]).to be nil
+        expect(@object.daily_weather.first[:totalsnow_cm]).to be nil
+        expect(@object.daily_weather.first[:avgvis_km]).to be nil
+        expect(@object.daily_weather.first[:vis_km]).to be nil
+        expect(@object.daily_weather.first[:daily_will_it_rain]).to be nil
+        expect(@object.daily_weather.first[:daily_chance_of_rain]).to be nil
+        expect(@object.daily_weather.first[:daily_will_it_snow]).to be nil
+        expect(@object.daily_weather.first[:daily_chance_of_snow]).to be nil
+        expect(@object.daily_weather.first[:code]).to be nil
+        expect(@object.daily_weather.first[:uv]).to be nil
+        expect(@object.daily_weather.first[:moonrise]).to be nil
+        expect(@object.daily_weather.first[:moonset]).to be nil
+        expect(@object.daily_weather.first[:moon_phase]).to be nil
+        expect(@object.daily_weather.first[:moon_illumination]).to be nil
+        expect(@object.daily_weather.first[:is_moon_up]).to be nil
+        expect(@object.daily_weather.first[:is_sun_up]).to be nil
       end
 
       it "should filter out unnecessary hourly forecast attributes" do
-        hour = @object.forecast.first[:hourly].first
+        hour = @object.daily_weather.first[:hourly_weather].first
         expect(hour[:tim_epoch]).to be nil
         expect(hour[:temp_c]).to be nil
         expect(hour[:is_day]).to be nil
