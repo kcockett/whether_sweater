@@ -86,6 +86,28 @@ RSpec.describe "Sessions request" do
         expect(reply[:errors].first[:detail]).to eq("Invalid credentials")
       end
 
+      it "Logging in with incorrect email renders a json response with an 'Invalid parameters' error" do
+        
+        json_payload = {
+          email: "wrong_email@example.com",
+          password: "password"
+        }.to_json
+  
+        post '/api/v0/sessions',
+          params: json_payload,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+  
+        expect(response.status).to eq(401)
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid credentials")
+      end
+
       it "Logging in with incorrect password renders a json response with an 'Invalid parameters' error" do
         
         json_payload = {
