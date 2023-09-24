@@ -2,12 +2,11 @@ class MapquestService
   attr_reader :location
 
   def initialize(location)
-    @location = location
-    @lat_lon = get_lat_lon
+    @location = get_location_info(location)
   end
 
-  def get_lat_lon
-    params = { outFormat: "json", location: @location }
+  def get_location_info(location)
+    params = { outFormat: "json", location: location }
     get_url("geocoding/v1/address", params)
   end
 

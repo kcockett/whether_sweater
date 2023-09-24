@@ -1,16 +1,14 @@
 class Weather
   attr_reader :location, :current, :forecast
 
-  def initialize(params)
-    if params[:location]
+  def initialize(params, coordinates)
+    if coordinates
+      latitude_str, longitude_str = coordinates.split(',')
+      latitude = latitude_str.to_f
+      longitude = longitude_str.to_f
       @location = { 
-        name: params[:location][:name],
-        state: params[:location][:region],
-        country: params[:location][:country],
-        lat: params[:location][:lat],
-        lon: params[:location][:lon],
-        time_zone: params[:location][:tz_id],
-        localtime: params[:location][:localtime]
+        lat: latitude,
+        lon: longitude
       }
     end
 

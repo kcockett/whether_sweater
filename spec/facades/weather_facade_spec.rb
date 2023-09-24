@@ -4,21 +4,16 @@ RSpec.describe "WeatherFacade", :vcr, type: :facade do
   describe "#current_weather" do
 
     before do
-      location = "39.87,-104.97"
+      location = "cincinatti,oh"
       facade = WeatherFacade.new(location)
-      @weather_check = facade.get_weather
+      @weather_check = facade.weather
     end
 
-    it "returns a Weather object with location information" do
+    it "returns a location information as a hash of 'latitude, longitude' and no other info" do
       info = @weather_check.location
-      expect(@weather_check).to be_a(Weather)
-      expect(info[:name]).to eq("Thornton")
-      expect(info[:state]).to eq("Colorado")
-      expect(info[:country]).to eq("United States of America")
-      expect(info[:lat]).to eq(39.87)
-      expect(info[:lon]).to eq(-104.97)
-      expect(info[:time_zone]).to eq("America/Denver")
-      expect(info[:localtime]).to be_a(String)
+      expect(info).to be_a(Hash)
+      expect(info[:lat]).to eq(39.10713)
+      expect(info[:lon]).to eq(-84.50413)
     end
     
     it "the Weather object includes current weather information" do
