@@ -1,8 +1,9 @@
 class LibraryService 
-  attr_reader :book_list
+  attr_reader :book_list, :location
 
   def initialize(params)
     @book_list = find_books(params)
+    @location = params[:location]
   end
 
   def find_books(params)
