@@ -3,11 +3,12 @@ class DestinationFacade
 
   def initialize(params)
     @destination = params[:destination]
-    @limit = params[:quantity]
-    @information = get_information(params)
+    @quantity = params[:quantity]
+    @information = get_information
   end
-
-  def get_information(params)
-    
+  
+  def get_information
+    book_info = LibraryService.new(location: @destination, limit: @quantity).book_list
+    DestinationBooks.new(book_info)
   end
 end
