@@ -1,11 +1,12 @@
 class LibraryService 
+  attr_reader :book_list
 
-  def initialize(title, limit)
-    @book_list = find_books(title, limit)
+  def initialize(params)
+    @book_list = find_books(params)
   end
 
-  def find_books(title, limit)
-    params = { q: title, limit: limit }
+  def find_books(params)
+    params = { q: params[:location], limit: params[:limit] }
     get_url("search.json", params)
   end
 
