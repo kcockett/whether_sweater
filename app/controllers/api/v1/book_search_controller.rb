@@ -1,6 +1,7 @@
 class Api::V1::BookSearchController < ApplicationController
   def index
-    # require 'pry'; binding.pry
+    destination = DestinationFacade.new(search_params)
+    render json: DestinationSerializer.new(destination.information)
   end
 
   private

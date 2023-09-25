@@ -2,7 +2,7 @@ class DestinationFacade
   attr_reader :destination, :quantity, :information
 
   def initialize(params)
-    @destination = params[:destination]
+    @destination = params[:location]
     @quantity = params[:quantity]
     @information = get_information
   end
