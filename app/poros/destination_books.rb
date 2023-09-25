@@ -18,8 +18,7 @@ class DestinationBooks
   def sort_books(books)
     book_list = books[:docs]
     sorted_books = []
-    books.each do |book|
-      require 'pry'; binding.pry
+    book_list.each do |book|
       title = book[:title]
       isbn = book[:isbn] if book[:isbn]
       sorted_books << {title: title, isbn: isbn}
