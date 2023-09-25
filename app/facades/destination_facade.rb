@@ -1,5 +1,5 @@
 class DestinationFacade
-  attr_reader 
+  attr_reader :destination, :quantity, :information
 
   def initialize(params)
     @destination = params[:destination]
