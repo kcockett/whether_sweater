@@ -40,8 +40,11 @@ RSpec.describe "Book-Search API", type: :request do
       end
 
       it "the :books array contain book information including :isbn as an array and :title as a string" do
-        expect(@response[:data][:attributes]).to have_key (:books)
-        expect(@response[:data][:attributes][:books]).to be_a Array
+        expect(@response[:data][:attributes][:books].first).to have_key (:isbn)
+        expect(@response[:data][:attributes][:books].first[:isbn]).to be_a Array
+
+        expect(@response[:data][:attributes][:books].first).to have_key (:title)
+        expect(@response[:data][:attributes][:books].first[:title]).to be_a String
       end
     end
   end
