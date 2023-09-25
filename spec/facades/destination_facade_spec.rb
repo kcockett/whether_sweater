@@ -3,15 +3,15 @@ require "rails_helper"
 RSpec.describe "DestinationFacade", :vcr, type: :facade do
 
   before do
-    @destination = "denver,co"
+    @location = "denver,co"
     @quantity = 5
-    params = {destination: @destination, quantity: @quantity}
+    params = {location: @location, quantity: @quantity}
     @facade = DestinationFacade.new(params)
   end
 
   describe "#get_info" do
     it "returns books and forecast at destination" do
-      expect(@facade.information.destination).to eq(@destination)
+      expect(@facade.information.destination).to eq(@location)
       expect(@facade.information.total_books_found).to be_a Integer
       expect(@facade.information.forecast).to be_a Hash
       expect(@facade.information.forecast).to have_key(:summary)
