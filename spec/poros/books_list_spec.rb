@@ -27,11 +27,14 @@ RSpec.describe "BooksList", :vcr, type: :poro do
       expect(object.total_books_found).to be_a Integer
 
       expect(object.books).to be_a Array
+      expect(object.books.count).to eq(@limit)
       expect(object.books.first).to be_a Hash
       expect(object.books.first).to have_key(:isbn)
       expect(object.books.first[:isbn]).to be_a Array
       expect(object.books.first[:isbn].first).to be_a String
-
+      
+      expect(object.books.first).to have_key(:title)
+      expect(object.books.first[:title]).to be_a String
     end
   end
 end
