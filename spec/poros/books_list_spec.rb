@@ -11,8 +11,9 @@ RSpec.describe "BooksList", :vcr, type: :poro do
       @book_info = @service.book_list
     end
 
-    describe "should initialize" do
+    it "should initialize" do
       object = DestinationBooks.new(@book_info)
+      require 'pry'; binding.pry
 
       expect(object).to be_a DestinationBooks
       expect(object.destination).to be_a String
