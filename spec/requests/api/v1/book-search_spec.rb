@@ -7,7 +7,7 @@ RSpec.describe "Book-Search API", type: :request do
       before do
         @location = "denver,co"
         @quantity = 5
-        get "/api/v0/book-search?location=#{@location}&&quantity=#{@quantity}"
+        get "/api/v1/book-search?location=#{@location}&&quantity=#{@quantity}"
         @response = JSON.parse(response.body, symbolize_names: true)
       end
 

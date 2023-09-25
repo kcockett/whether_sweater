@@ -1,5 +1,5 @@
 class DestinationBooks
-  attr_reader
+  attr_reader :destination, :forecast, :total_books_found, :books
 
   def initialize(book_info)
     @destination = book_info[:q]
