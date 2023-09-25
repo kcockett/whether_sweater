@@ -6,7 +6,8 @@ class Api::V0::RoadtripController < ApplicationController
       if !User.find_by(api_key: roadtrip_params[:api_key])
         render json: ErrorSerializer.format_errors("Invalid parameters"), status: 401
       else
-        # Ok to render the roadtrip
+        roadtrip = RoadtripFacade.new(roadtrip_params)
+        render json: RoadtripSerializer.new(roadtrip), status: 200
       end
     end
   end
