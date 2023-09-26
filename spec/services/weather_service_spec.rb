@@ -5,7 +5,8 @@ RSpec.describe "Weather Service", type: :service do
 
     before do
       location = "39.87,-104.97"
-      service = WeatherService.new(location)
+      @days = 10
+      service = WeatherService.new(location, @days)
       @weather = service.get_weather
     end
     
@@ -63,8 +64,9 @@ RSpec.describe "Weather Service", type: :service do
       expect(current_info[:gust_kph]).to be_a(Float)
     end
 
-    it "can retrieve forecast weather information" do
+    it "can retrieve forecast weather information for up to 10 days" do
       forecast = @weather[:forecast][:forecastday].first
+      expect(@weather[:forecast][:forecastday].count).to eq(@days)
       
       expect(forecast[:date]).to be_a(String)
       expect(forecast[:day][:maxtemp_c]).to be_a(Float)
