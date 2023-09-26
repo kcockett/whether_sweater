@@ -1,8 +1,9 @@
 class RoadtripFacade
+  attr_reader :roadtrip
 
   def initialize(params)
     travel_params = {origin: params[:origin], destination: params[:destination]}
-    get_roadtrip_object(travel_params)
+    @roadtrip = get_roadtrip_object(travel_params)
   end
   
   def get_roadtrip_object(travel_params)
