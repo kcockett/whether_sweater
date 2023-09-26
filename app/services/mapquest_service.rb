@@ -10,6 +10,14 @@ class MapquestService
     get_url("geocoding/v1/address", params)
   end
 
+  def get_route(travel_params)
+    params = { outFormat: "json", 
+      from: travel_params[:origin], 
+      to: travel_params[:destination] 
+    }
+    get_url("directions/v2/route", params)
+  end
+
   def get_url(url, params)
     response = conn.get(url, params)
     JSON.parse(response.body, symbolize_names: true)
