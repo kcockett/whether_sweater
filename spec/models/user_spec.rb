@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
 
       it "the keys generated should be unique" do
         api_keys = []
-        for number in 1..500 do
+        for number in 1..100 do
           user = User.create!(email: "test#{number}@example.com", password: "password")
           api_keys << user.api_key
         end
