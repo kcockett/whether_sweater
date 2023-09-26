@@ -16,8 +16,7 @@ RSpec.describe Roadtrip, :vcr, type: :poro do
       params = {
         start_city: @origin,
         end_city: @destination, 
-        travel_time: @travel_time_seconds, 
-        eta_datetime: @eta_datetime, 
+        travel_time: @travel_time_formatted, 
         weather_at_eta: @weather_at_eta
       }
       @roadtrip = Roadtrip.new(params)
