@@ -6,7 +6,9 @@ class RoadtripFacade
   end
   
   def get_roadtrip_object(travel_params)
-    travel_time_seconds = get_travel_time_seconds(travel_params)
+    travel_times = get_travel_times(travel_params)
+    travel_time_seconds = travel_times[:seconds]
+    travel_time_formatted = travel_times[:formatted]
     eta_datetime = calculate_eta(travel_time_seconds)
     
     weather_params = {
@@ -19,18 +21,21 @@ class RoadtripFacade
     roadtrip_params = {
       start_city: travel_params[:origin],
       end_city: travel_params[:destination], 
-      travel_time: travel_time_seconds, 
-      eta_datetime: eta_datetime, 
+      travel_time: travel_time_formatted,
       weather_at_eta: weather_at_eta
     }
-    require 'pry'; binding.pry
     Roadtrip.new(roadtrip_params)
   end
   
-  def get_travel_time_seconds(travel_params)
+  def get_travel_times(travel_params)
     destination = MapquestService.new(travel_params[:destination])
     trip = destination.get_route(travel_params)
     travel_time_seconds = trip[:route][:time]
+    travel_time_formatted = trip[:route][:formattedTime]
+    time_info = {
+      seconds: travel_time_seconds, 
+      formatted: travel_time_formatted 
+    }
   end
   
   def calculate_eta(travel_time_seconds)
@@ -68,7 +73,11 @@ class RoadtripFacade
     condition = one_hour[:condition][:text]
     temperature = one_hour[:temp_f]
     
-    conditions_at_datetime = {condition: condition, temperature: temperature}
+    conditions_at_datetime = {
+      datetime: eta_datetime,
+      temperature: temperature,
+      condition: condition
+    }
   end
 
   def flatten_minutes(eta_datetime)
