@@ -98,8 +98,8 @@ RSpec.describe "Roadtrip API", type: :request do
             'Accept' => 'application/json'
           }
         reply = JSON.parse(response.body, symbolize_names: true)
-        expect(reply[:data][:attributes][:weather_at_eta][:condition]) to eq("The arrival date is too far ahead to forecast the weather at this time.")
-        expect(reply[:data][:attributes][:weather_at_eta][:temperature]) to eq(0.0)
+        expect(reply[:data][:attributes][:weather_at_eta][:condition]).to eq("The arrival date is too far ahead to forecast the weather at this time.")
+        expect(reply[:data][:attributes][:weather_at_eta][:temperature]).to eq(0.0)
       end
     end
   end
