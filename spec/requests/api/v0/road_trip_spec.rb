@@ -181,7 +181,7 @@ RSpec.describe "Roadtrip API", type: :request do
         expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
 
-      it "will return a 401 error if the route cannot be plotted" do
+      it "will return no error if the route cannot be plotted but weather will be empty and travel time will be impossible" do
         user_1 = User.create!(email: "user_1@example.com", password: "password")
         json_payload = {
           origin: "Cincinatti,OH",
@@ -197,12 +197,13 @@ RSpec.describe "Roadtrip API", type: :request do
           }
         reply = JSON.parse(response.body, symbolize_names: true)
 
-        expect(response.status).to eq 603
-        expect(reply).to have_key(:errors)
-        expect(reply[:errors]).to be_a Array
-        expect(reply[:errors].first).to be_a Hash
-        expect(reply[:errors].first).to have_key(:detail)
-        expect(reply[:errors].first[:detail]).to eq("No route to destination")
+        expect(response.status).to eq 200
+        expect(reply).to have_key(:data)
+        expect(reply[:data]).to have_key(:attributes)
+        expect(reply[:data][:attributes]).to have_key(:travel_time)
+        expect(reply[:data][:attributes][:travel_time]).to eq("impossible")
+        expect(reply[:data][:attributes]).to have_key(:weather_at_eta)
+        expect(reply[:data][:attributes][:weather_at_eta]).to eq({})
       end
     end
   end
