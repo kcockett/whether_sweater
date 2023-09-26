@@ -10,14 +10,19 @@ class RoadtripFacade
     travel_times = get_travel_times(travel_params)
     travel_time_seconds = travel_times[:seconds]
     travel_time_formatted = travel_times[:formatted]
-    eta_datetime = calculate_eta(travel_time_seconds)
-    
-    weather_params = {
-      destination: travel_params[:destination], 
-      travel_time_seconds: travel_time_seconds, 
-      eta_datetime: eta_datetime
-    }
-    weather_at_eta = get_weather_at_eta(weather_params)
+
+    if travel_time_seconds > 0
+      eta_datetime = calculate_eta(travel_time_seconds)
+      
+      weather_params = {
+        destination: travel_params[:destination], 
+        travel_time_seconds: travel_time_seconds, 
+        eta_datetime: eta_datetime
+      }
+      weather_at_eta = get_weather_at_eta(weather_params)
+    else
+      weather_at_eta = {}
+    end
     
     roadtrip_params = {
       start_city: travel_params[:origin],
@@ -31,10 +36,15 @@ class RoadtripFacade
   def get_travel_times(travel_params)
     destination = MapquestService.new(travel_params[:destination])
     trip = destination.get_route(travel_params)
-    raise NoRouteToDestinationError if trip[:route][:routeError]
     
-    travel_time_seconds = trip[:route][:time]
-    travel_time_formatted = trip[:route][:formattedTime]
+    if trip[:route][:routeError]
+      travel_time_seconds = 0
+      travel_time_formatted = "impossible"
+    else
+      travel_time_seconds = trip[:route][:time]
+      travel_time_formatted = trip[:route][:formattedTime]
+    end
+
     time_info = {
       seconds: travel_time_seconds, 
       formatted: travel_time_formatted 
@@ -76,7 +86,7 @@ class RoadtripFacade
     conditions_at_datetime = {
       datetime: eta_datetime,
       temperature: temperature,
-      condition: condition
+      condition: condition + "... with a chance of meatballs"
     }
   end
 
