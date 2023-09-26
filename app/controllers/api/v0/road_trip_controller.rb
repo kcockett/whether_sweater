@@ -1,4 +1,4 @@
-class Api::V0::RoadtripController < ApplicationController
+class Api::V0::RoadTripController < ApplicationController
 
   rescue_from NoRouteToDestinationError, with: :handle_no_route_to_destination
 

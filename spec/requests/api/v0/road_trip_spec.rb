@@ -14,7 +14,7 @@ RSpec.describe "Roadtrip API", type: :request do
           api_key: @user_2.api_key.to_s
         }
   
-        post '/api/v0/roadtrip',
+        post '/api/v0/road_trip',
           params: @json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
@@ -91,7 +91,7 @@ RSpec.describe "Roadtrip API", type: :request do
           api_key: user_1.api_key.to_s
         }
   
-        post '/api/v0/roadtrip',
+        post '/api/v0/road_trip',
           params: json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
@@ -115,7 +115,7 @@ RSpec.describe "Roadtrip API", type: :request do
           api_key: user_1.api_key.to_s
         }
   
-        post '/api/v0/roadtrip',
+        post '/api/v0/road_trip',
           params: json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
@@ -139,7 +139,7 @@ RSpec.describe "Roadtrip API", type: :request do
           # api_key: user_1.api_key.to_s
         }
   
-        post '/api/v0/roadtrip',
+        post '/api/v0/road_trip',
           params: json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
@@ -163,7 +163,7 @@ RSpec.describe "Roadtrip API", type: :request do
           api_key: "incorrect_api_key"
         }
   
-        post '/api/v0/roadtrip',
+        post '/api/v0/road_trip',
           params: json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
@@ -187,7 +187,7 @@ RSpec.describe "Roadtrip API", type: :request do
           api_key: user_1.api_key
         }
   
-        post '/api/v0/roadtrip',
+        post '/api/v0/road_trip',
           params: json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
