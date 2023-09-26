@@ -32,6 +32,7 @@ class RoadtripFacade
     destination = MapquestService.new(travel_params[:destination])
     trip = destination.get_route(travel_params)
     raise NoRouteToDestinationError if trip[:route][:routeError]
+    
     travel_time_seconds = trip[:route][:time]
     travel_time_formatted = trip[:route][:formattedTime]
     time_info = {
@@ -50,9 +51,10 @@ class RoadtripFacade
   
   def get_weather_at_eta(weather_params)
     days_ahead = weather_params[:travel_time_seconds] / 84600
-    days = days_ahead.floor
+    days = days_ahead.floor + 2
     days = 1 if days.zero?
-    weather_forecast = WeatherService.new(weather_params[:destination], days: days).get_weather
+    days = 10 if days > 10
+    weather_forecast = WeatherService.new(location: weather_params[:destination], days: days).get_weather
     weather_days = weather_forecast[:forecast][:forecastday]
     conditions_at_datetime = get_eta_hour_info(weather_days, weather_params[:eta_datetime])
   end

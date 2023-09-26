@@ -1,7 +1,7 @@
 class WeatherService
   attr_reader :location
 
-  def initialize(location, days)
+  def initialize(location:, days:)
     @location = location
     @days = days
   end

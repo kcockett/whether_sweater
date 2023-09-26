@@ -11,7 +11,7 @@ class WeatherFacade
   end
   
   def get_weather(location_coords,days)
-    service = WeatherService.new(location_coords, days)
+    service = WeatherService.new(location: location_coords, days: days)
     weather_info = service.get_weather
     Weather.new(weather_info, location_coords)
   end

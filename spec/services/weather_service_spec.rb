@@ -6,7 +6,7 @@ RSpec.describe "Weather Service", type: :service do
     before do
       location = "39.87,-104.97"
       @days = 10
-      service = WeatherService.new(location, @days)
+      service = WeatherService.new(location: location, days: @days)
       @weather = service.get_weather
     end
     

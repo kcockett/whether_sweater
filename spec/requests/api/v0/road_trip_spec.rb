@@ -9,8 +9,10 @@ RSpec.describe "Roadtrip API", type: :request do
         @user_1 = User.create!(email: "user_1@example.com", password: "password")
         @user_2 = User.create!(email: "user_2@example.com", password: "password")
         @json_payload = {
-          origin: "Cincinatti,OH",
-          destination: "Chicago,IL",
+          # origin: "Cincinatti,OH",
+          # destination: "Chicago,IL",
+          origin: "New York, NY",
+          destination: "Los Angeles, CA",
           api_key: @user_2.api_key.to_s
         }
   
@@ -131,7 +133,7 @@ RSpec.describe "Roadtrip API", type: :request do
         expect(reply[:errors].first[:detail]).to eq("Missing parameters")
       end
 
-      it "will return a 400 error api_key is missing" do
+      it "will return a 401 error api_key is missing" do
         user_1 = User.create!(email: "user_1@example.com", password: "password")
         json_payload = {
           origin: "Cincinatti,OH",
@@ -147,12 +149,12 @@ RSpec.describe "Roadtrip API", type: :request do
           }
         reply = JSON.parse(response.body, symbolize_names: true)
 
-        expect(response.status).to eq 400
+        expect(response.status).to eq 401
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
         expect(reply[:errors].first).to be_a Hash
         expect(reply[:errors].first).to have_key(:detail)
-        expect(reply[:errors].first[:detail]).to eq("Missing parameters")
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
 
       it "will return a 401 error if api-key does not match a user" do
