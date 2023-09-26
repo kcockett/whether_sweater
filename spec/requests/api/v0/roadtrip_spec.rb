@@ -12,10 +12,10 @@ RSpec.describe "Roadtrip API", type: :request do
           origin: "Cincinatti,OH",
           destination: "Chicago,IL",
           api_key: @user_2.api_key.to_s
-        }.to_json
+        }
   
         post '/api/v0/roadtrip',
-          params: @json_payload,
+          params: @json_payload.to_json,
           headers: {
             'Content-Type' => 'application/json',
             'Accept' => 'application/json'
@@ -35,7 +35,7 @@ RSpec.describe "Roadtrip API", type: :request do
       
       it "type, always set to “roadtrip”" do
         expect(@reply[:data]).to have_key(:type)
-        expect(@reply[:data][:type]).to eq("roadtrip")
+        expect(@reply[:data][:type]).to eq("road_trip")
       end
       
       it "attributes, an object containing road trip information" do

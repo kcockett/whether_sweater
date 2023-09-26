@@ -7,7 +7,7 @@ class Api::V0::RoadtripController < ApplicationController
         render json: ErrorSerializer.format_errors("Invalid parameters"), status: 401
       else
         roadtrip = RoadtripFacade.new(roadtrip_params)
-        render json: RoadtripSerializer.new(roadtrip), status: 200
+        render json: RoadtripSerializer.new(roadtrip.roadtrip), status: 200
       end
     end
   end
