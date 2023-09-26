@@ -15,11 +15,22 @@ RSpec.describe User, type: :model do
   end
 
   describe "methods" do
-    describe "#generate_api_key"
-    it "should generate an api key upon creation of a user" do
-      expect(@user1.email).to eq("user1@example.com")
-      expect(@user1.api_key).to_not be_nil
-      expect(@user1.api_key).to_not eq(@user2.api_key)
+    describe "#generate_api_key" do
+
+      it "should generate an api key upon creation of a user" do
+        expect(@user1.email).to eq("user1@example.com")
+        expect(@user1.api_key).to_not be_nil
+        expect(@user1.api_key).to_not eq(@user2.api_key)
+      end
+
+      it "the keys generated should be unique" do
+        api_keys = []
+        for number in 1..100 do
+          user = User.create!(email: "test#{number}@example.com", password: "password")
+          api_keys << user.api_key
+        end
+        expect(api_keys.uniq.length).to eq(api_keys.length)
+      end
     end
   end
 end

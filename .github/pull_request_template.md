@@ -13,7 +13,7 @@
 
 - [] Are all tests within the test suite passing?
 - [] Code runs locally
-- SimpleCov coverage results: 
+- [] SimpleCov coverage 100%?  
 
 - [] No Tests have been changed
 - [] Some Tests have been changed

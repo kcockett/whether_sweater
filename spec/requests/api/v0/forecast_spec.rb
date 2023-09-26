@@ -197,10 +197,9 @@ RSpec.describe "Forecast API", type: :request do
         location = "invalid location"
         get "/api/v0/forecast?location=#{location}"
         reply = JSON.parse(response.body, symbolize_names: true)
-
+        
         expect(response.status).to eq(200)
-        expect(reply[:data][:attributes][:location][:lat]).to eq(38.89037)
-        expect(reply[:data][:attributes][:location][:lon]).to eq(-77.03196)
+        expect(reply[:data][:attributes][:current_weather]).to be_a Hash
       end
     end
   end

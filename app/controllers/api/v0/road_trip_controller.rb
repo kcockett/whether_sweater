@@ -1,7 +1,5 @@
 class Api::V0::RoadTripController < ApplicationController
 
-  rescue_from NoRouteToDestinationError, with: :handle_no_route_to_destination
-
   def create
     if !roadtrip_params[:origin] || !roadtrip_params[:destination]
       render json: ErrorSerializer.format_errors("Missing parameters"), status: 400
@@ -19,9 +17,5 @@ class Api::V0::RoadTripController < ApplicationController
 
   def roadtrip_params
     params.permit(:origin, :destination, :api_key)
-  end
-
-  def handle_no_route_to_destination
-    render json: ErrorSerializer.format_errors("No route to destination"), status: 603
   end
 end
