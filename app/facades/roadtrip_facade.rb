@@ -33,6 +33,7 @@ class RoadtripFacade
     trip = destination.get_route(travel_params)
     travel_time_seconds = trip[:route][:time]
     travel_time_formatted = trip[:route][:formattedTime]
+    require 'pry'; binding.pry
     time_info = {
       seconds: travel_time_seconds, 
       formatted: travel_time_formatted 

@@ -178,6 +178,30 @@ RSpec.describe "Roadtrip API", type: :request do
         expect(reply[:errors].first).to have_key(:detail)
         expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
       end
+
+      it "will return a 401 error if the route cannot be plotted" do
+        user_1 = User.create!(email: "user_1@example.com", password: "password")
+        json_payload = {
+          origin: "Cincinatti,OH",
+          destination: "Honolulu,HI",
+          api_key: user_1.api_key
+        }
+  
+        post '/api/v0/roadtrip',
+          params: json_payload.to_json,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+
+        expect(response.status).to eq 401
+        expect(reply).to have_key(:errors)
+        expect(reply[:errors]).to be_a Array
+        expect(reply[:errors].first).to be_a Hash
+        expect(reply[:errors].first).to have_key(:detail)
+        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
+      end
     end
   end
 end
