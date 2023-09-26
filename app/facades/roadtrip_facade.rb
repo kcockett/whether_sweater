@@ -49,15 +49,11 @@ class RoadtripFacade
   
   def get_weather_at_eta(weather_params)
     days_ahead = weather_params[:travel_time_seconds] / 84600
-    if days_ahead >= 11
-      conditions_at_datetime = { condition: "The arrival date is too far ahead to forecast the weather at this time.", temperature: 999.9}
-    else
-      days = days_ahead.floor
-      days = 1 if days.zero?
-      weather_forecast = WeatherService.new(weather_params[:destination], days: days).get_weather
-      weather_days = weather_forecast[:forecast][:forecastday]
-      conditions_at_datetime = get_eta_hour_info(weather_days, weather_params[:eta_datetime])
-    end
+    days = days_ahead.floor
+    days = 1 if days.zero?
+    weather_forecast = WeatherService.new(weather_params[:destination], days: days).get_weather
+    weather_days = weather_forecast[:forecast][:forecastday]
+    conditions_at_datetime = get_eta_hour_info(weather_days, weather_params[:eta_datetime])
   end
   
   def get_eta_hour_info(weather_days, eta_datetime)
