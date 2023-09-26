@@ -195,12 +195,12 @@ RSpec.describe "Roadtrip API", type: :request do
           }
         reply = JSON.parse(response.body, symbolize_names: true)
 
-        expect(response.status).to eq 401
+        expect(response.status).to eq 603
         expect(reply).to have_key(:errors)
         expect(reply[:errors]).to be_a Array
         expect(reply[:errors].first).to be_a Hash
         expect(reply[:errors].first).to have_key(:detail)
-        expect(reply[:errors].first[:detail]).to eq("Invalid parameters")
+        expect(reply[:errors].first[:detail]).to eq("No route to destination")
       end
     end
   end

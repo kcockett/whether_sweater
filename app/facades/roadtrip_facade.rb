@@ -31,9 +31,9 @@ class RoadtripFacade
   def get_travel_times(travel_params)
     destination = MapquestService.new(travel_params[:destination])
     trip = destination.get_route(travel_params)
+    raise NoRouteToDestinationError if trip[:route][:routeError]
     travel_time_seconds = trip[:route][:time]
     travel_time_formatted = trip[:route][:formattedTime]
-    require 'pry'; binding.pry
     time_info = {
       seconds: travel_time_seconds, 
       formatted: travel_time_formatted 
