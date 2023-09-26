@@ -1,12 +1,13 @@
 class WeatherService
   attr_reader :location
 
-  def initialize(location)
+  def initialize(location:, days:)
     @location = location
+    @days = days
   end
 
   def get_weather
-    params = { q: @location, days: 5 }
+    params = { q: @location, days: @days }
     get_url("forecast.json", params)
   end
 
