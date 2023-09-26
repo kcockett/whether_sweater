@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "Roadtrip API" do
-  describe "POST /api/v0/road_trip" do
+RSpec.describe "Roadtrip API", type: :request do
+  describe "POST /api/v0/road_trip", :vcr do
 
     describe "Happy path:  A properly formatted request returns a json response including:" do
 

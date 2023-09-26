@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe Roadtrip, :vcr, type: :poro do
-  describe "#initialize" do
+RSpec.describe Roadtrip, type: :poro do
+  describe "#initialize", :vcr do
     before do
       user = User.create!(email: "user@example.com", password: "password")
       @origin = "Cincinatti,OH"
