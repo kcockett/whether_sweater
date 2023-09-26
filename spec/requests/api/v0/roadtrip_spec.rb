@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Roadtrip API", type: :request do
   describe "POST /api/v0/road_trip", :vcr do
-
+    
     describe "Happy path:  A properly formatted request returns a json response including:" do
 
       before do
@@ -22,7 +22,7 @@ RSpec.describe "Roadtrip API", type: :request do
           }
         @reply = JSON.parse(response.body, symbolize_names: true)
       end
-
+      
       it "a data attribute, under which all other attributes are present" do
         expect(@reply).to have_key(:data)
         expect(@reply[:data]).to be_a Hash
@@ -78,6 +78,28 @@ RSpec.describe "Roadtrip API", type: :request do
       it "condition, the text description for the weather condition at that hour.  note: this object will be blank if the travel time is impossible" do
         expect(@reply[:data][:attributes][:weather_at_eta]).to have_key(:condition)
         expect(@reply[:data][:attributes][:weather_at_eta][:condition]).to be_a String
+      end
+    end
+
+    describe "Sad path tests" do
+
+      it "cannot retrieve forcast for more than 10 days ahead [Weather API limitation]" do
+        user_1 = User.create!(email: "user_1@example.com", password: "password")
+        json_payload = {
+          origin: "Cincinatti,OH",
+          destination: "Cancun, Mexico",
+          api_key: user_1.api_key.to_s
+        }
+  
+        post '/api/v0/roadtrip',
+          params: json_payload.to_json,
+          headers: {
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        reply = JSON.parse(response.body, symbolize_names: true)
+        expect(reply[:data][:attributes][:weather_at_eta][:condition]) to eq("The arrival date is too far ahead to forecast the weather at this time.")
+        expect(reply[:data][:attributes][:weather_at_eta][:temperature]) to eq(0.0)
       end
     end
   end
