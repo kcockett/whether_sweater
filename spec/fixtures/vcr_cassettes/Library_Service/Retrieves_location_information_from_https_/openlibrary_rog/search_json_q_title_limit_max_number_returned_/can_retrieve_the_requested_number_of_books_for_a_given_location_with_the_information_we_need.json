@@ -1,0 +1,72 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "get",
+        "uri": "https://openlibrary.org/search.json?limit=4&q=Denver,%20Colorado",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "Faraday v2.7.11"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "Server": [
+            "nginx/1.18.0 (Ubuntu)"
+          ],
+          "Date": [
+            "Tue, 26 Sep 2023 18:00:45 GMT"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Access-Control-Allow-Origin": [
+            "*"
+          ],
+          "Access-Control-Allow-Method": [
+            "GET, OPTIONS"
+          ],
+          "Access-Control-Max-Age": [
+            "86400"
+          ],
+          "X-Ol-Stats": [
+            "\"SR 1 0.043 TT 0 0.044\""
+          ],
+          "Referrer-Policy": [
+            "no-referrer-when-downgrade"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\n    \"numFound\": 3720,\n    \"start\": 0,\n    \"numFoundExact\": true,\n    \"docs\": [\n        {\n            \"key\": \"/works/OL4140051W\",\n            \"type\": \"work\",\n            \"seed\": [\n                \"/books/OL12173857M\",\n                \"/works/OL4140051W\",\n                \"/authors/OL778604A\"\n            ],\n            \"title\": \"Denver, Colorado\",\n            \"title_suggest\": \"Denver, Colorado\",\n            \"title_sort\": \"Denver, Colorado\",\n            \"edition_count\": 1,\n            \"edition_key\": [\n                \"OL12173857M\"\n            ],\n            \"publish_date\": [\n                \"July 1, 2007\"\n            ],\n            \"publish_year\": [\n                2007\n            ],\n            \"first_publish_year\": 2007,\n            \"number_of_pages_median\": 128,\n            \"oclc\": [\n                \"173515035\"\n            ],\n            \"contributor\": [\n                \"Twin Lights Publishers (Editor)\"\n            ],\n            \"isbn\": [\n                \"1885435711\",\n                \"9781885435712\"\n            ],\n            \"last_modified_i\": 1670441347,\n            \"ebook_count_i\": 0,\n            \"ebook_access\": \"no_ebook\",\n            \"has_fulltext\": false,\n            \"public_scan_b\": false,\n            \"cover_edition_key\": \"OL12173857M\",\n            \"cover_i\": 3027166,\n            \"publisher\": [\n                \"Twin Lights Publishers\"\n            ],\n            \"language\": [\n                \"eng\"\n            ],\n            \"author_key\": [\n                \"OL778604A\"\n            ],\n            \"author_name\": [\n                \"John Kieffer\"\n            ],\n            \"id_goodreads\": [\n                \"5943105\"\n            ],\n            \"publisher_facet\": [\n                \"Twin Lights Publishers\"\n            ],\n            \"_version_\": 1767935091647971328,\n            \"author_facet\": [\n                \"OL778604A John Kieffer\"\n            ]\n        },\n        {\n            \"key\": \"/works/OL12226054W\",\n            \"type\": \"work\",\n            \"seed\": [\n                \"/books/OL17704674M\",\n                \"/books/OL17597366M\",\n                \"/works/OL12226054W\",\n                \"/subjects/sick_building_syndrome\",\n                \"/subjects/indoor_air_pollution\",\n                \"/subjects/place:colorado\",\n                \"/subjects/place:denver\",\n                \"/authors/OL5326196A\"\n            ],\n            \"title\": \"The Children's Hospital of Denver, Denver, Colorado\",\n            \"title_suggest\": \"The Children's Hospital of Denver, Denver, Colorado\",\n            \"title_sort\": \"The Children's Hospital of Denver, Denver, Colorado\",\n            \"edition_count\": 2,\n            \"edition_key\": [\n                \"OL17704674M\",\n                \"OL17597366M\"\n            ],\n            \"publish_date\": [\n                \"2000\"\n            ],\n            \"publish_year\": [\n                2000\n            ],\n            \"first_publish_year\": 2000,\n            \"publish_place\": [\n                \"[Springfield, Va\",\n                \"[Atlanta, Ga.?]\"\n            ],\n            \"oclc\": [\n                \"45549123\"\n            ],\n            \"contributor\": [\n                \"National Institute for Occupational Safety and Health.\"\n            ],\n            \"last_modified_i\": 1264189155,\n            \"ebook_count_i\": 0,\n            \"ebook_access\": \"no_ebook\",\n            \"has_fulltext\": false,\n            \"public_scan_b\": false,\n            \"publisher\": [\n                \"National Technical Information Service, distributor\",\n                \"U.S. Dept. of Health and Human Services, Public Health Service, Centers for Disease Control and Prevention, National Institute for Occupational Safety and Health\"\n            ],\n            \"language\": [\n                \"eng\"\n            ],\n            \"author_key\": [\n                \"OL5326196A\"\n            ],\n            \"author_name\": [\n                \"Lisa J. Delaney\"\n            ],\n            \"place\": [\n                \"Colorado\",\n                \"Denver\"\n            ],\n            \"subject\": [\n                \"Sick building syndrome\",\n                \"Indoor air pollution\"\n            ],\n            \"publisher_facet\": [\n                \"National Technical Information Service, distributor\",\n                \"U.S. Dept. of Health and Human Services, Public Health Service, Centers for Disease Control and Prevention, National Institute for Occupational Safety and Health\"\n            ],\n            \"place_key\": [\n                \"colorado\",\n                \"denver\"\n            ],\n            \"subject_facet\": [\n                \"Indoor air pollution\",\n                \"Sick building syndrome\"\n            ],\n            \"_version_\": 1767894231768104961,\n            \"place_facet\": [\n                \"Colorado\",\n                \"Denver\"\n            ],\n            \"author_facet\": [\n                \"OL5326196A Lisa J. Delaney\"\n            ],\n            \"subject_key\": [\n                \"indoor_air_pollution\",\n                \"sick_building_syndrome\"\n            ]\n        },\n        {\n            \"key\": \"/works/OL11524052W\",\n            \"type\": \"work\",\n            \"seed\": [\n                \"/books/OL15315118M\",\n                \"/works/OL11524052W\",\n                \"/subjects/sick_building_syndrome\",\n                \"/subjects/indoor_air_pollution\",\n                \"/subjects/place:colorado\",\n                \"/subjects/place:denver\",\n                \"/authors/OL4846291A\"\n            ],\n            \"title\": \"The Children's Hospital of Denver, Denver, Colorado\",\n            \"title_suggest\": \"The Children's Hospital of Denver, Denver, Colorado\",\n            \"title_sort\": \"The Children's Hospital of Denver, Denver, Colorado\",\n            \"edition_count\": 1,\n            \"edition_key\": [\n                \"OL15315118M\"\n            ],\n            \"publish_date\": [\n                \"2000\"\n            ],\n            \"publish_year\": [\n                2000\n            ],\n            \"first_publish_year\": 2000,\n            \"publish_place\": [\n                \"[Atlanta, Ga.?]\",\n                \"[Springfield, Va\"\n            ],\n            \"contributor\": [\n                \"National Institute for Occupational Safety and Health\"\n            ],\n            \"last_modified_i\": 1264014846,\n            \"ebook_count_i\": 0,\n            \"ebook_access\": \"no_ebook\",\n            \"has_fulltext\": false,\n            \"public_scan_b\": false,\n            \"publisher\": [\n                \"U.S. Dept. of Health and Human Services, Public Health Service, Centers for Disease Control and Prevention, National Institute for Occupational Safety and Health\",\n                \"National Technical Information Service, distributor\"\n            ],\n            \"language\": [\n                \"eng\"\n            ],\n            \"author_key\": [\n                \"OL4846291A\"\n            ],\n            \"author_name\": [\n                \"Lisa J Delaney\"\n            ],\n            \"place\": [\n                \"Colorado\",\n                \"Denver\"\n            ],\n            \"subject\": [\n                \"Sick building syndrome\",\n                \"Indoor air pollution\"\n            ],\n            \"publisher_facet\": [\n                \"National Technical Information Service, distributor\",\n                \"U.S. Dept. of Health and Human Services, Public Health Service, Centers for Disease Control and Prevention, National Institute for Occupational Safety and Health\"\n            ],\n            \"place_key\": [\n                \"colorado\",\n                \"denver\"\n            ],\n            \"subject_facet\": [\n                \"Indoor air pollution\",\n                \"Sick building syndrome\"\n            ],\n            \"_version_\": 1767892828001665025,\n            \"place_facet\": [\n                \"Colorado\",\n                \"Denver\"\n            ],\n            \"author_facet\": [\n                \"OL4846291A Lisa J Delaney\"\n            ],\n            \"subject_key\": [\n                \"indoor_air_pollution\",\n                \"sick_building_syndrome\"\n            ]\n        },\n        {\n            \"key\": \"/works/OL4796244W\",\n            \"type\": \"work\",\n            \"seed\": [\n                \"/books/OL2210432M\",\n                \"/works/OL4796244W\",\n                \"/subjects/juvenile_literature\",\n                \"/subjects/guidebooks\",\n                \"/subjects/guides\",\n                \"/subjects/place:denver_(colo.)\",\n                \"/subjects/place:denver_region_(colo.)\",\n                \"/authors/OL1009253A\"\n            ],\n            \"title\": \"Denver, Colorado\",\n            \"title_suggest\": \"Denver, Colorado\",\n            \"title_sort\": \"Denver, Colorado\",\n            \"edition_count\": 1,\n            \"edition_key\": [\n                \"OL2210432M\"\n            ],\n            \"publish_date\": [\n                \"1989\"\n            ],\n            \"publish_year\": [\n                1989\n            ],\n            \"first_publish_year\": 1989,\n            \"number_of_pages_median\": 48,\n            \"lccn\": [\n                \"89032946\"\n            ],\n            \"publish_place\": [\n                \"New York\"\n            ],\n            \"lcc\": [\n                \"F--0784.00000000.D43 C67 1989\"\n            ],\n            \"ddc\": [\n                \"917.88830433\"\n            ],\n            \"isbn\": [\n                \"0896864642\",\n                \"9780896864641\"\n            ],\n            \"last_modified_i\": 1604914257,\n            \"ebook_count_i\": 1,\n            \"ebook_access\": \"borrowable\",\n            \"has_fulltext\": true,\n            \"public_scan_b\": false,\n            \"ia\": [\n                \"denvercolorado00corn\"\n            ],\n            \"ia_collection\": [\n                \"bpljordan-ol\",\n                \"china\",\n                \"inlibrary\",\n                \"internetarchivebooks\",\n                \"printdisabled\"\n            ],\n            \"ia_collection_s\": \"bpljordan-ol;china;inlibrary;internetarchivebooks;printdisabled\",\n            \"lending_edition_s\": \"OL2210432M\",\n            \"lending_identifier_s\": \"denvercolorado00corn\",\n            \"printdisabled_s\": \"OL2210432M\",\n            \"cover_edition_key\": \"OL2210432M\",\n            \"cover_i\": 10057303,\n            \"publisher\": [\n                \"Crestwood House\"\n            ],\n            \"language\": [\n                \"eng\"\n            ],\n            \"author_key\": [\n                \"OL1009253A\"\n            ],\n            \"author_name\": [\n                \"Josie Corning\"\n            ],\n            \"place\": [\n                \"Denver (Colo.)\",\n                \"Denver Region (Colo.)\"\n            ],\n            \"subject\": [\n                \"Juvenile literature\",\n                \"Guidebooks\",\n                \"Guides\"\n            ],\n            \"id_goodreads\": [\n                \"5499042\"\n            ],\n            \"ia_loaded_id\": [\n                \"denvercolorado00corn\"\n            ],\n            \"ia_box_id\": [\n                \"IA145421\",\n                \"IA159722\"\n            ],\n            \"publisher_facet\": [\n                \"Crestwood House\"\n            ],\n            \"place_key\": [\n                \"denver_(colo.)\",\n                \"denver_region_(colo.)\"\n            ],\n            \"subject_facet\": [\n                \"Guidebooks\",\n                \"Guides\",\n                \"Juvenile literature\"\n            ],\n            \"_version_\": 1767936319028199426,\n            \"place_facet\": [\n                \"Denver (Colo.)\",\n                \"Denver Region (Colo.)\"\n            ],\n            \"lcc_sort\": \"F--0784.00000000.D43 C67 1989\",\n            \"author_facet\": [\n                \"OL1009253A Josie Corning\"\n            ],\n            \"subject_key\": [\n                \"guidebooks\",\n                \"guides\",\n                \"juvenile_literature\"\n            ],\n            \"ddc_sort\": \"917.88830433\"\n        }\n    ],\n    \"num_found\": 3720,\n    \"q\": \"Denver, Colorado\",\n    \"offset\": null\n}"
+        }
+      },
+      "recorded_at": "Tue, 26 Sep 2023 18:00:45 GMT"
+    }
+  ],
+  "recorded_with": "VCR 6.2.0"
+}

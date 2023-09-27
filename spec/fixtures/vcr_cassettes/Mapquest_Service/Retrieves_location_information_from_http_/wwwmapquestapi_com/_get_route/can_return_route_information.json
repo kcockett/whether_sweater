@@ -1,0 +1,160 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "get",
+        "uri": "http://www.mapquestapi.com/geocoding/v1/address?key=MY_SECRET_TOKEN&location=13495%20Holly%20St,%20Thornton,%20CO%2080602&outFormat=json",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "Faraday v2.7.11"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "Date": [
+            "Tue, 26 Sep 2023 15:01:34 GMT"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Content-Length": [
+            "850"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "X-Ratelimit-Limit-2628000": [
+            "15000"
+          ],
+          "X-Ratelimit-Remaining-2628000": [
+            "14745"
+          ],
+          "Ratelimit-Limit": [
+            "15000"
+          ],
+          "Ratelimit-Remaining": [
+            "14745"
+          ],
+          "Ratelimit-Reset": [
+            "1947506"
+          ],
+          "X-Powered-By": [
+            "MapQuest"
+          ],
+          "X-Request-Id": [
+            "95823570-5c7d-11ee-923f-0bc2ac19d7a0"
+          ],
+          "Access-Control-Allow-Origin": [
+            "*"
+          ],
+          "Etag": [
+            "W/\"352-fRErp7QP2D3MllQlRUd6dVXu9p4\""
+          ]
+        },
+        "body": {
+          "encoding": "ASCII-8BIT",
+          "string": "{\"info\":{\"statuscode\":0,\"copyright\":{\"text\":\"© 2023 MapQuest, Inc.\",\"imageUrl\":\"http://api.mqcdn.com/res/mqlogo.gif\",\"imageAltText\":\"© 2023 MapQuest, Inc.\"},\"messages\":[]},\"options\":{\"maxResults\":-1,\"ignoreLatLngInput\":false},\"results\":[{\"providedLocation\":{\"location\":\"13495 Holly St, Thornton, CO 80602\"},\"locations\":[{\"street\":\"13495 Holly St\",\"adminArea6\":\"\",\"adminArea6Type\":\"Neighborhood\",\"adminArea5\":\"Thornton\",\"adminArea5Type\":\"City\",\"adminArea4\":\"Adams\",\"adminArea4Type\":\"County\",\"adminArea3\":\"CO\",\"adminArea3Type\":\"State\",\"adminArea1\":\"US\",\"adminArea1Type\":\"Country\",\"postalCode\":\"80602-7974\",\"geocodeQualityCode\":\"L1AAA\",\"geocodeQuality\":\"ADDRESS\",\"dragPoint\":false,\"sideOfStreet\":\"L\",\"linkId\":\"0\",\"unknownInput\":\"\",\"type\":\"s\",\"latLng\":{\"lat\":39.93481,\"lng\":-104.92193},\"displayLatLng\":{\"lat\":39.93481,\"lng\":-104.92211},\"mapUrl\":\"\"}]}]}"
+        }
+      },
+      "recorded_at": "Tue, 26 Sep 2023 15:01:34 GMT"
+    },
+    {
+      "request": {
+        "method": "get",
+        "uri": "http://www.mapquestapi.com/directions/v2/route?from=13495%20Holly%20St,%20Thornton,%20CO%2080602&key=MY_SECRET_TOKEN&outFormat=json&to=2300%20Steele%20St,%20Denver,%20CO%2080205",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept": [
+            "application/json"
+          ],
+          "User-Agent": [
+            "Faraday v2.7.11"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "Date": [
+            "Tue, 26 Sep 2023 15:01:35 GMT"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Content-Length": [
+            "13812"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "X-Ratelimit-Limit-2628000": [
+            "15000"
+          ],
+          "X-Ratelimit-Remaining-2628000": [
+            "14740"
+          ],
+          "Ratelimit-Limit": [
+            "15000"
+          ],
+          "Ratelimit-Remaining": [
+            "14740"
+          ],
+          "Ratelimit-Reset": [
+            "1947505"
+          ],
+          "X-Powered-By": [
+            "MapQuest"
+          ],
+          "X-Request-Id": [
+            "95dd74d0-5c7d-11ee-be4e-af8e498a33bd"
+          ],
+          "Access-Control-Allow-Origin": [
+            "*"
+          ],
+          "X-Transaction-Count": [
+            "all=3,geocoding=2,directions=1"
+          ],
+          "Etag": [
+            "W/\"35f4-ydMgp2a8/xmgjiAzmlAfhadnlmM\""
+          ]
+        },
+        "body": {
+          "encoding": "ASCII-8BIT",
+          "string": "{\"route\":{\"sessionId\":\"AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\",\"realTime\":1815,\"distance\":15.1826,\"time\":1466,\"formattedTime\":\"00:24:26\",\"hasHighway\":true,\"hasTollRoad\":false,\"hasBridge\":true,\"hasSeasonalClosure\":false,\"hasTunnel\":false,\"hasFerry\":false,\"hasUnpaved\":false,\"hasTimedRestriction\":false,\"hasCountryCross\":false,\"legs\":[{\"index\":0,\"hasTollRoad\":false,\"hasHighway\":true,\"hasBridge\":true,\"hasUnpaved\":false,\"hasTunnel\":false,\"hasSeasonalClosure\":false,\"hasFerry\":false,\"hasCountryCross\":false,\"hasTimedRestriction\":false,\"distance\":15.1826,\"time\":1815,\"formattedTime\":\"00:30:15\",\"origIndex\":0,\"origNarrative\":\"\",\"destIndex\":0,\"destNarrative\":\"\",\"maneuvers\":[{\"index\":0,\"distance\":2.4184,\"narrative\":\"Head south on Holly St. Go for 2.4 mi.\",\"time\":231,\"direction\":4,\"directionName\":\"South\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:03:51\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.93481,\"lng\":-104.92193},\"turnType\":0,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"Holly St\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.93481,-104.92193|marker-1||39.89976000000003,-104.92199000000004|marker-2||&center=39.917285000000014,-104.92196000000001&defaultMarker=none&zoom=11&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":1,\"distance\":0.2498,\"narrative\":\"Continue on Holly St. Go for 0.2 mi.\",\"time\":26,\"direction\":4,\"directionName\":\"South\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:26\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.89976000000003,\"lng\":-104.92199000000004},\"turnType\":0,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"Holly St\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.89976000000003,-104.92199000000004|marker-2||39.896220000000035,-104.92154000000004|marker-3||&center=39.897990000000036,-104.92176500000004&defaultMarker=none&zoom=15&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":2,\"distance\":1.8896,\"narrative\":\"Continue on McKay Rd. Go for 1.9 mi.\",\"time\":220,\"direction\":4,\"directionName\":\"South\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:03:40\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.896220000000035,\"lng\":-104.92154000000004},\"turnType\":0,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"McKay Rd\",\"Monaco St\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.896220000000035,-104.92154000000004|marker-3||39.870780000000025,-104.91136000000002|marker-4||&center=39.883500000000026,-104.91645000000003&defaultMarker=none&zoom=12&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":3,\"distance\":0.4263,\"narrative\":\"Turn left onto E 96th Ave. Go for 0.4 mi.\",\"time\":53,\"direction\":8,\"directionName\":\"East\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:53\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.870780000000025,\"lng\":-104.91136000000002},\"turnType\":6,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"E 96th Ave\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.870780000000025,-104.91136000000002|marker-4||39.870700000000014,-104.90335000000003|marker-5||&center=39.87074000000002,-104.90735500000002&defaultMarker=none&zoom=14&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":4,\"distance\":1.6236,\"narrative\":\"Take the 2nd exit from roundabout onto I-76 W toward Denver. Go for 1.6 mi.\",\"time\":125,\"direction\":6,\"directionName\":\"Southwest\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:02:05\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.870700000000014,\"lng\":-104.90335000000003},\"turnType\":28,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"I-76\",\"US-6\",\"US-85\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.870700000000014,-104.90335000000003|marker-5||39.851220000000005,-104.91942|marker-6||&center=39.860960000000006,-104.91138500000002&defaultMarker=none&zoom=12&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":5,\"distance\":0.7121,\"narrative\":\"Take exit 9 toward US-6 W/US-85 S/Commerce City. Go for 0.7 mi.\",\"time\":46,\"direction\":6,\"directionName\":\"Southwest\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:46\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.851220000000005,\"lng\":-104.91942},\"turnType\":14,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.851220000000005,-104.91942|marker-6||39.84219000000001,-104.92434000000002|marker-7||&center=39.84670500000001,-104.92188000000002&defaultMarker=none&zoom=13&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":6,\"distance\":1.4708,\"narrative\":\"Continue on US-6 W/US-85 S. Go for 1.5 mi.\",\"time\":220,\"direction\":4,\"directionName\":\"South\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:03:40\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.84219000000001,\"lng\":-104.92434000000002},\"turnType\":0,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"US-6\",\"US-85\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.84219000000001,-104.92434000000002|marker-7||39.82181,-104.93113000000004|marker-8||&center=39.83200000000001,-104.92773500000003&defaultMarker=none&zoom=12&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":7,\"distance\":0.0205,\"narrative\":\"Turn right onto E 69th Ave. Go for 108 ft.\",\"time\":12,\"direction\":7,\"directionName\":\"West\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:12\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.82181,\"lng\":-104.93113000000004},\"turnType\":2,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"E 69th Ave\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.82181,-104.93113000000004|marker-8||39.82182,-104.93152000000003|marker-9||&center=39.821815,-104.93132500000004&defaultMarker=none&zoom=16&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":8,\"distance\":1.8796,\"narrative\":\"Turn left onto Brighton Blvd (CO-265). Go for 1.9 mi.\",\"time\":213,\"direction\":6,\"directionName\":\"Southwest\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:03:33\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.82182,\"lng\":-104.93152000000003},\"turnType\":6,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"CO-265\",\"Brighton Blvd\",\"US Highway 85\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.82182,-104.93152000000003|marker-9||39.79919000000002,-104.95029000000007|marker-10||&center=39.810505000000006,-104.94090500000004&defaultMarker=none&zoom=12&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":9,\"distance\":0.8059,\"narrative\":\"Turn left onto E 56th Ave. Go for 0.8 mi.\",\"time\":149,\"direction\":8,\"directionName\":\"East\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:02:29\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.79919000000002,\"lng\":-104.95029000000007},\"turnType\":6,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"E 56th Ave\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.79919000000002,-104.95029000000007|marker-10||39.79714000000003,-104.93601000000005|marker-11||&center=39.798165000000026,-104.94315000000006&defaultMarker=none&zoom=13&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":10,\"distance\":0.0628,\"narrative\":\"Turn right onto Vasquez Blvd (US-6 W/US-85 S). Go for 331 ft.\",\"time\":10,\"direction\":6,\"directionName\":\"Southwest\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:10\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.79714000000003,\"lng\":-104.93601000000005},\"turnType\":2,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"US-6\",\"US-85\",\"CO-2\",\"Vasquez Blvd\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.79714000000003,-104.93601000000005|marker-11||39.796390000000024,-104.93668000000005|marker-12||&center=39.79676500000002,-104.93634500000005&defaultMarker=none&zoom=16&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":11,\"distance\":3.1901,\"narrative\":\"Keep right onto CO-2 S. Go for 3.2 mi.\",\"time\":457,\"direction\":4,\"directionName\":\"South\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:07:37\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.796390000000024,\"lng\":-104.93668000000005},\"turnType\":16,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"CO-2\",\"Colorado Blvd\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.796390000000024,-104.93668000000005|marker-12||39.75102999999999,-104.94078000000013|marker-13||&center=39.77371000000001,-104.93873000000009&defaultMarker=none&zoom=11&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":12,\"distance\":0.4331,\"narrative\":\"Turn right onto E 23rd Ave. Go for 0.4 mi.\",\"time\":53,\"direction\":7,\"directionName\":\"West\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:53\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.75102999999999,\"lng\":-104.94078000000013},\"turnType\":2,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[\"E 23rd Ave\"],\"mapUrl\":\"https://www.mapquestapi.com/staticmap/v5/map?key=MY_SECRET_TOKEN&size=225,160&locations=39.75102999999999,-104.94078000000013|marker-13||39.75121000000002,-104.94890600000012|marker-14||&center=39.75112000000001,-104.94484300000013&defaultMarker=none&zoom=14&session=AIwA5wcAAAUBAAAHAAAABQAAAJ4AAAB42mOYx8DAyMTAwMCekVqUapWcG_PVQYKBgYHh5or3OVwrupNNOV-mxqyE0gxYAEzj-jc2kiB-oczxRKaaRXGmTtUuMSB6RY0LVo0gMPvxAe1zDAwMDQ4uDBwMLAoqgk0OigwKLIyNDqwNKqJODAoAQWgjR95Snnk:car\"},{\"index\":13,\"distance\":0,\"narrative\":\"Arrive at E 23rd Ave. Your destination is on the left.\",\"time\":0,\"direction\":0,\"directionName\":\"None\",\"signs\":[],\"maneuverNotes\":[],\"formattedTime\":\"00:00:00\",\"transportMode\":\"car\",\"startPoint\":{\"lat\":39.75121000000002,\"lng\":-104.94890600000012},\"turnType\":0,\"attributes\":0,\"iconUrl\":\"\",\"streets\":[]}]}],\"options\":{\"routeType\":\"FASTEST\",\"narrativeType\":\"text\",\"enhancedNarrative\":false,\"walkingSpeed\":-1,\"highwayEfficiency\":22,\"avoids\":false,\"generalize\":-1,\"shapeFormat\":\"raw\",\"unit\":\"M\",\"locale\":\"en_US\",\"useTraffic\":false,\"timeType\":0,\"dateType\":0,\"doReverseGeocode\":true,\"manMaps\":true,\"sideOfStreetDisplay\":true},\"boundingBox\":{\"ul\":{\"lat\":39.93481,\"lng\":-104.95029000000007},\"lr\":{\"lat\":39.75102999999999,\"lng\":-104.90299000000002}},\"name\":\"CO-2 and Holly St\",\"maxRoutes\":\"\",\"locations\":[{\"street\":\"13495 Holly St\",\"adminArea6\":\"\",\"adminArea6Type\":\"Neighborhood\",\"adminArea5\":\"Thornton\",\"adminArea5Type\":\"City\",\"adminArea4\":\"Adams\",\"adminArea4Type\":\"County\",\"adminArea3\":\"CO\",\"adminArea3Type\":\"State\",\"adminArea1\":\"US\",\"adminArea1Type\":\"Country\",\"postalCode\":\"80602-7974\",\"geocodeQualityCode\":\"L1AAA\",\"geocodeQuality\":\"ADDRESS\",\"dragPoint\":false,\"sideOfStreet\":\"L\",\"linkId\":\"0\",\"unknownInput\":\"\",\"type\":\"s\",\"latLng\":{\"lat\":39.93481,\"lng\":-104.92193},\"displayLatLng\":{\"lat\":39.93481,\"lng\":-104.92211},\"mapUrl\":\"\"},{\"street\":\"2300 Steele St\",\"adminArea6\":\"\",\"adminArea6Type\":\"Neighborhood\",\"adminArea5\":\"Denver\",\"adminArea5Type\":\"City\",\"adminArea4\":\"\",\"adminArea4Type\":\"County\",\"adminArea3\":\"CO\",\"adminArea3Type\":\"State\",\"adminArea1\":\"US\",\"adminArea1Type\":\"Country\",\"postalCode\":\"80205\",\"geocodeQualityCode\":\"P1AAA\",\"geocodeQuality\":\"POINT\",\"dragPoint\":false,\"sideOfStreet\":\"N\",\"linkId\":\"0\",\"unknownInput\":\"\",\"type\":\"s\",\"latLng\":{\"lat\":39.75118,\"lng\":-104.948906},\"displayLatLng\":{\"lat\":39.75118,\"lng\":-104.948906},\"mapUrl\":\"\",\"source\":\"CAF\"}],\"locationSequence\":[0,1]},\"info\":{\"statuscode\":0,\"copyright\":{\"text\":\"© 2023 MapQuest, Inc.\",\"imageUrl\":\"http://api.mqcdn.com/res/mqlogo.gif\",\"imageAltText\":\"© 2023 MapQuest, Inc.\"},\"messages\":[]}}"
+        }
+      },
+      "recorded_at": "Tue, 26 Sep 2023 15:01:35 GMT"
+    }
+  ],
+  "recorded_with": "VCR 6.2.0"
+}

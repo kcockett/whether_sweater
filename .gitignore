@@ -30,6 +30,5 @@
 /config/weather_api.yml
 
 coverage
-spec/fixtures/vcr_cassettes
+
 /coverage
-/spec/fixtures/vcr_cassettes
